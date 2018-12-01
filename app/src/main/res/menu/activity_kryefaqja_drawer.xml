@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_kryefaqja"
+            android:icon="@mipmap/kryefaqja"
+            android:title="Kryefaqja" />
+        <item
+            android:id="@+id/nav_kerko"
+            android:icon="@mipmap/kerko"
+            android:title="Kërko" />
+        <item
+            android:id="@+id/nav_kerkimet"
+            android:icon="@mipmap/kerkimet"
+            android:title="Kërkimet e mia" />
+        <item
+            android:id="@+id/nav_saved"
+            android:icon="@mipmap/saved"
+            android:title="Postimet e ruajtura" />
+
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@mipmap/profile"
+            android:title="Log In"/>
+    </group>
+
+    <item android:title="Aplikacioni">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@mipmap/settings"
+                android:title="Preferencat"
+                />
+        </menu>
+    </item>
+
+</menu>
