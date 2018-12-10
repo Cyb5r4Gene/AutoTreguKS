@@ -1,6 +1,6 @@
 package rks.youngdevelopers.autotreguks;
 
-import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,23 +10,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telecom.Call;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
 
 import Fragmentet.FragmentKryefaqja;
+import Fragmentet.KerkoFragment;
 import Fragmentet.LoginFragment;
+import Fragmentet.PostimetFragment;
 
 public class KryefaqjaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kryefaqja);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,36 +51,46 @@ public class KryefaqjaActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            //super.onBackPressed();
+            if (getSupportFragmentManager().getBackStackEntryCount() > 1){
+                getSupportFragmentManager().popBackStack();
+            }
+            // Default action on back pressed
+            //else super.onBackPressed();
         }
     }
-
 
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // manipulimi me navigim
         int id = item.getItemId();
         Fragment fragment = null;
 
-        if (id == R.id.nav_kryefaqja) {
-            fragment = new FragmentKryefaqja();
-        }  else if (id == R.id.nav_kerko) {
-
-        } else if (id == R.id.nav_kerkimet) {
-
-        } else if (id == R.id.nav_saved) {
-
-        } else if (id == R.id.nav_login) {
-            fragment = new LoginFragment();
+        switch (id)
+        {
+            case (R.id.nav_kryefaqja):
+                fragment = new FragmentKryefaqja();
+                break;
+            case (R.id.nav_kerko):
+                fragment = new KerkoFragment();
+                break;
+            case (R.id.nav_saved):
+                fragment = new PostimetFragment();
+                break;
+            case (R.id.nav_login):
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                break;
+            case (R.id.nav_settings):
+                // ketu hapet PreferencatActivity
+                break;
         }
 
         if(fragment != null)
         {
             FragmentManager fragmentManager = getSupportFragmentManager();
             android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
-
+            ft.addToBackStack(null);
             ft.replace(R.id.screen_kryefaqja, fragment);
             ft.commit();
         }
@@ -91,6 +99,7 @@ public class KryefaqjaActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
 }

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#28B463</color>
+    <color name="colorPrimary">#028B46</color>
     <color name="colorPrimaryDark">#065829</color>
-    <color name="colorAccent">#E4433B</color>
+    <color name="colorAccent">#C0392B</color>
+
+    <!--<color name="colorPrimary">#28B463</color>-->
 
     <color name="prapavija">#222222</color>
     <color name="hiri">#909090</color>
     <color name="teksti">#ECECEC</color>
     <color name="main_prapavija">#CFCECE</color>
+    <color name="text_hint">#CCCCCC</color>
+    <color name="group_prapavija">#424242</color>
 
 
 </resources>

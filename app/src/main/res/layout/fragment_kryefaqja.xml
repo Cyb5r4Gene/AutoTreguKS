@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/main_prapavija"
-    >
+    android:gravity="center"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btnKerko"
@@ -15,50 +13,47 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:paddingStart="10dp"
         android:background="@drawable/rounded_button"
-        android:textColor="@color/teksti"
-        android:textSize="15sp"
-        android:text="Kërko"
-        android:drawableStart="@mipmap/kerko1"
         android:drawablePadding="-20dp"
-        />
+        android:drawableStart="@mipmap/search"
+        android:paddingStart="10dp"
+        android:text="Kërko"
+        android:textColor="@color/teksti"
+        android:textSize="15sp" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp"
-            android:paddingBottom="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rounded_border"
-            >
+            android:paddingBottom="15dp">
 
             <TextView
-                android:layout_alignParentTop="true"
                 android:id="@+id/txtInteresuar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
                 android:background="@drawable/underlined"
                 android:text="Kërkime të shpejta!"
-                />
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:id="@+id/layoutFamiljar"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtInteresuar"
-                >
+                android:layout_below="@id/txtInteresuar">
+
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="143dp"
@@ -69,13 +64,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/underline_propozimet"
-                    android:textStyle="bold"
                     android:text="Vetura Familjare"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -83,9 +77,9 @@
                 android:id="@+id/layoutSport"
                 android:layout_width="160dp"
                 android:layout_height="110dp"
-                android:layout_marginLeft="5dp"
                 android:layout_below="@id/layoutFamiljar"
-                >
+                android:layout_marginLeft="5dp">
+
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -95,13 +89,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="-5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="-5dp"
                     android:background="@drawable/underline_propozimet"
-                    android:textStyle="bold"
                     android:text="Vetura Sportive"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -109,11 +102,11 @@
                 android:id="@+id/layoutKamionete"
                 android:layout_width="fill_parent"
                 android:layout_height="110dp"
+                android:layout_below="@id/layoutFamiljar"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_below="@id/layoutFamiljar"
-                android:layout_toRightOf="@id/layoutSport"
-                >
+                android:layout_toRightOf="@id/layoutSport">
+
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -123,13 +116,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="-5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="-5dp"
                     android:background="@drawable/underline_propozimet"
-                    android:textStyle="bold"
                     android:text="Kamionetë"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -137,11 +129,11 @@
                 android:id="@+id/layoutSuv"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_below="@id/layoutSport"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_below="@id/layoutSport"
-                >
+                android:layout_marginTop="10dp">
+
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -151,13 +143,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="-5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="-5dp"
                     android:background="@drawable/underline_propozimet"
-                    android:textStyle="bold"
                     android:text="SUV"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -165,10 +156,10 @@
                 android:id="@+id/layoutTransporterN"
                 android:layout_width="170dp"
                 android:layout_height="120dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
                 android:layout_below="@id/layoutSuv"
-                >
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp">
+
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -178,13 +169,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="-5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="-5dp"
                     android:background="@drawable/underline_propozimet"
-                    android:textStyle="bold"
                     android:text="Transporter udhëtarësh"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -192,12 +182,12 @@
                 android:id="@+id/layoutTransporterM"
                 android:layout_width="fill_parent"
                 android:layout_height="120dp"
+                android:layout_below="@id/layoutSuv"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@id/layoutSuv"
-                android:layout_toRightOf="@id/layoutTransporterN"
-                >
+                android:layout_toRightOf="@id/layoutTransporterN">
+
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -207,17 +197,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="-5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="-5dp"
                     android:background="@drawable/underline_propozimet"
-                    android:textStyle="bold"
                     android:text="Transporter malli"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
-
-
 
         </RelativeLayout>
 

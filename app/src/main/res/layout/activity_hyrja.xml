@@ -12,8 +12,7 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@mipmap/app_logo"
-        />
+        android:src="@mipmap/app_logo" />
 
     <TextView
         android:id="@+id/test"
@@ -25,8 +24,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="cursive"
         android:textStyle="bold"
-        android:clickable="true"
-        />
+        android:clickable="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +33,5 @@
         android:text="Tregu online i veturave në Kosovë"
         android:fontFamily="sans-serif"
         android:textStyle="italic"/>
-
-
 
 </LinearLayout>

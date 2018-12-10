@@ -8,5 +8,56 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="login">Kyçu / Krijo Llogari</string>
+    <string name="kerko">Kërko</string>
+    <string name="kerkimet">Kërkimet e mia</string>
+    <string name="kryefaqja">Kryefaqja</string>
+    <string name="postimet">Postimet e ruajtura</string>
+    <string name="title_activity_krijo_llogari">KrijoLlogariActivity</string>
+    <string name="postimet_e_mia">Postimet e mia</string>
+    <string name="posto">Posto shpallje të re</string>
+    <string name="logout">Mbyll Llogarinë</string>
+    <string name="profili">Profili</string>
+    <string name="raporto">Raporto gabime</string>
+    <string name="ndihma">Ndihma</string>
+    <string name="preferencat">Preferencat</string>
+
+    <string-array name="qytetet">
+        <item>Qyteti</item>
+        <item>Artanë</item>
+        <item>Dragash</item>
+        <item>Drenas</item>
+        <item>Elez Han</item>
+        <item>Ferizaj</item>
+        <item>Fushë Kosovë</item>
+        <item>Gjakovë</item>
+        <item>Gjilan</item>
+        <item>Graçanicë</item>
+        <item>Istog</item>
+        <item>Junik</item>
+        <item>Kamenicë</item>
+        <item>Kaqanik</item>
+        <item>Klinë</item>
+        <item>Leposaviç</item>
+        <item>Lipjan</item>
+        <item>Mitrovicë</item>
+        <item>Novobërdë</item>
+        <item>Obiliq (Kastriot)</item>
+        <item>Pejë</item>
+        <item>Podujevë</item>
+        <item>Prishtinë</item>
+        <item>Prizren</item>
+        <item>Rahovec</item>
+        <item>Skenderaj</item>
+        <item>Suharekë</item>
+        <item>Shtëme</item>]
+        <item>Shtime</item>
+        <item>Viti</item>
+        <item>Vushtrri</item>
+        <item>Zveçan</item>
+    </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
 
 </resources>

@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +33,7 @@ public class FragmentKryefaqja extends Fragment {
         super.onViewCreated(v, savedInstanceState);
 
         //ketu zhvillohet interaksioni me UI te FragmentKryefaqja
-
+        ((KryefaqjaActivity) getActivity()).getSupportActionBar().setTitle(R.string.kryefaqja);
         btnKerko = (Button) v.findViewById(R.id.btnKerko);
 
         layoutFamiljar = (RelativeLayout)v.findViewById(R.id.layoutFamiljar);
@@ -41,7 +43,12 @@ public class FragmentKryefaqja extends Fragment {
             @Override
             public void onClick(View v) {
                 //ketu vendoset eventi i klikimit te butonit kerko
-
+                Fragment fragment = new KerkoFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.addToBackStack(null);
+                ft.replace(R.id.screen_kryefaqja, fragment);
+                ft.commit();
 
             }
         });

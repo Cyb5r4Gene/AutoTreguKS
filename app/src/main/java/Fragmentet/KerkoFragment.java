@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import rks.youngdevelopers.autotreguks.KryefaqjaActivity;
 import rks.youngdevelopers.autotreguks.R;
 
 public class KerkoFragment extends Fragment {
@@ -15,10 +16,12 @@ public class KerkoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_kerko, null);
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((KryefaqjaActivity) getActivity()).getSupportActionBar().setTitle(R.string.kerko);
     }
 }

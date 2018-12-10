@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/prapavija"
+    android:orientation="vertical"
+    android:layout_marginBottom="5dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/profil_krijo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Krijo Llogari"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/group_prapavija"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="TË DHËNAT PERSONALE"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/etKrijoEmri"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Emri"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/etKrijoMbiemri"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mbiemri"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/tvKrijoDatelindja"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/krijo_background"
+                    android:drawableEnd="@mipmap/calendar"
+                    android:drawablePadding="32dp"
+                    android:text="Datëlindja"
+                    android:textColor="@color/text_hint"
+                    android:clickable="true"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <Spinner
+                        android:id="@+id/spinnerKrijoQyteti"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/krijo_background"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:spinnerMode="dropdown">
+
+                    </Spinner>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="-50dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@id/spinnerKrijoQyteti"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/drop" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/etKrijoNumri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/styleKrijoLlogari"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:hint="Telefoni"
+                    android:layout_marginBottom="20dp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@color/group_prapavija"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="AUTENTIFIKIMI"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etKrijoEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="E-mail"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    style="@style/styleKrijoLlogari" />
+
+                <EditText
+                    android:id="@+id/etKrijoPassword"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fjalëkalimi"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/etKrijoKonfirmPassword"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Konfirmo Fjalëkalimin"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutTipi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@color/group_prapavija"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="TIPI I LLOGARISË"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioPrivate"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:checked="true"
+                        android:text="Private" />
+
+                    <RadioButton
+                        android:id="@+id/radioAutoSallon"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:text="Auto Sallon" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/layoutAutoSallon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/etKrijoAutosalloni"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Emri i Auto-Sallonit"
+                        android:imeOptions="actionDone"
+                        android:inputType="text" />
+
+                    <TextView
+                        android:id="@+id/tvAdresa"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/krijo_background"
+                        android:text="Adresa e plotë e Auto-Sallonit"
+                        android:textColor="@color/text_hint"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp">
+
+                <Button
+                    android:id="@+id/btnAnulo"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    android:textColor="@color/teksti"
+                    android:text="Pastro"
+                    android:layout_marginEnd="10dp"/>
+                <Button
+                    android:id="@+id/btnKrijo"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/teksti"
+                    android:text="Vazhdo"
+                    android:layout_marginStart="10dp"/>
+            </LinearLayout>
+</LinearLayout>
+</ScrollView>

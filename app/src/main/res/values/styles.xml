@@ -10,10 +10,32 @@
         <item name="android:textColorSecondary">#D0D0D0</item>
     </style>
 
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:listDivider">@color/teksti</item>
+        <item name="android:textColorSecondary">#D0D0D0</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="styleKrijoLlogari" parent="android:TextAppearance">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/teksti</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@drawable/underline_propozimet</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 
 
 </resources>

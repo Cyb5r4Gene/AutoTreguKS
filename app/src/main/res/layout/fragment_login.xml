@@ -1,81 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/prapavija"
-    >
+    android:background="@color/prapavija">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/login"
-        />
-
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/profil_login" />
 
         <EditText
             android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:paddingLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/underline_propozimet"
             android:hint="E-mail"
-            android:textSize="15sp"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
+            android:textColor="@color/teksti"
+            android:textColorHint="@color/hiri"
+            android:textSize="15sp" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
 
-        <EditText
-            android:id="@+id/etLoginPassword"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/etLoginPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/underline_propozimet"
+                android:hint="Fjalëkalimi"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:paddingBottom="5dp"
+                android:paddingStart="10dp"
+                android:textColor="@color/teksti"
+                android:textColorHint="@color/hiri"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnShiko"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/etLoginPassword"
+                android:layout_marginLeft="-25dp"
+                android:layout_marginTop="-25dp"
+                android:layout_toRightOf="@id/etLoginPassword"
+                android:background="@mipmap/mosshiko" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/login_border"
+            android:fontFamily="serif"
             android:paddingLeft="10dp"
-            android:hint="Fjalëkalimi"
+            android:paddingRight="10dp"
+            android:text="Login"
             android:textSize="15sp"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="Login"
-        android:fontFamily="serif"
-        android:background="@drawable/login_border"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        />
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:text="Keni harruar Fjalëkalimin?!"
+            android:textColor="@color/colorAccent"
+            android:textStyle="italic" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvKrijoLlogari"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/hiri"
-        android:text="Kliko këtu për tu anëtarësuar në AutoTregu.KS"
-        android:textStyle="italic"
-        />
-
-</LinearLayout>
+</ScrollView>

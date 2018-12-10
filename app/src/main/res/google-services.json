@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "699249449101",
+    "firebase_url": "https://autotreguks.firebaseio.com",
+    "project_id": "autotreguks",
+    "storage_bucket": "autotreguks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699249449101:android:13deb308994f4500",
+        "android_client_info": {
+          "package_name": "rks.youngdevelopers.autotreguks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699249449101-tu2unpedsk6kaoe9rc0gpts9ee3pq103.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rks.youngdevelopers.autotreguks",
+            "certificate_hash": "88609f7b4ce8a02f8efa2817d1f3e1a82be2c593"
+          }
+        },
+        {
+          "client_id": "699249449101-g6n9vco1io6ue8jenfibmjcmmnouuk7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWeWdHcDqmnFih7OsstmOO8hd3QObz0vA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699249449101-g6n9vco1io6ue8jenfibmjcmmnouuk7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
