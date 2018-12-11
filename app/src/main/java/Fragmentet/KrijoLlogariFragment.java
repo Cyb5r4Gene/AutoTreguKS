@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -31,11 +32,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import rks.youngdevelopers.autotreguks.KryefaqjaActivity;
 import rks.youngdevelopers.autotreguks.R;
+import rks.youngdevelopers.autotreguks.User;
 
 public class KrijoLlogariFragment extends Fragment {
 
@@ -48,9 +53,18 @@ public class KrijoLlogariFragment extends Fragment {
 
     TextView tvDatelindja;
 
-    EditText etKrijoEmri, etKrijoMbiemri, etKrijoEmail, etKrijoPass, etKrijoKonfirmoPass, etKrijoSalloni;
+    EditText etKrijoEmri, etKrijoMbiemri, etKrijoEmail, etKrijoPass, etKrijoKonfirmoPass, etKrijoSalloni, etKrijoNumri;
 
     FirebaseAuth firebaseAuth;
+
+    String emri, mbiemri, email,datelindja, tel, dataKrijimit,editimiFundit, pass, pass2;
+    int qyteti, tipi;
+    ImageView gabimEmri, gabimMbiemri, gabimDatelindja, gabimQyteti, gabimTel, gabimEmail, gabimPass, gabimPass2, gabimAutosalloni, gabimAdresa;
+
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    DatabaseReference dRef = db.getReference();
+
+    FirebaseUser useri;
 
     private ProgressDialog progressDialog;
 
@@ -83,6 +97,7 @@ public class KrijoLlogariFragment extends Fragment {
         etKrijoPass = (EditText)view.findViewById(R.id.etKrijoPassword);
         etKrijoKonfirmoPass = (EditText)view.findViewById(R.id.etKrijoKonfirmPassword);
         etKrijoSalloni = (EditText)view.findViewById(R.id.etKrijoAutosalloni);
+        etKrijoNumri = (EditText)view.findViewById(R.id.etKrijoNumri);
 
         radioPrivate = (RadioButton)view.findViewById(R.id.radioPrivate);
         radioAutoSallon = (RadioButton)view.findViewById(R.id.radioAutoSallon);
@@ -91,6 +106,16 @@ public class KrijoLlogariFragment extends Fragment {
         btnAnulo = (Button)view.findViewById(R.id.btnAnulo);
         btnRuaj = (Button)view.findViewById(R.id.btnKrijo);
         tvDatelindja = (TextView)view.findViewById(R.id.tvKrijoDatelindja);
+
+        gabimEmri = (ImageView)view.findViewById(R.id.gabimEmri);
+        gabimMbiemri = (ImageView)view.findViewById(R.id.gabimMbiemri);
+        gabimEmail = (ImageView)view.findViewById(R.id.gabimEmail);
+        gabimPass = (ImageView)view.findViewById(R.id.gabimPass);
+        gabimPass2 = (ImageView)view.findViewById(R.id.gabimPass2);
+        gabimDatelindja = (ImageView)view.findViewById(R.id.gabimDatelindja);
+        gabimQyteti = (ImageView)view.findViewById(R.id.gabimQyteti);
+        gabimTel = (ImageView)view.findViewById(R.id.gabimTel);
+        datelindja="";
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(getContext());
@@ -117,8 +142,8 @@ public class KrijoLlogariFragment extends Fragment {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                String data = String.valueOf(dayOfMonth)+" / "+String.valueOf(month+1)+" / "+String.valueOf(year);
-                tvDatelindja.setText("Datëlindja:  "+data);
+                datelindja = String.valueOf(dayOfMonth)+" / "+String.valueOf(month+1)+" / "+String.valueOf(year);
+                tvDatelindja.setText("Datëlindja:  "+datelindja);
 
             }
         };
@@ -130,6 +155,7 @@ public class KrijoLlogariFragment extends Fragment {
                 if(radioAutoSallon.isChecked())
                 {
                     layoutAutoSallon.setVisibility(View.VISIBLE);
+                    tipi = 2;
                 }
             }
         });
@@ -140,7 +166,67 @@ public class KrijoLlogariFragment extends Fragment {
                 if(radioPrivate.isChecked())
                 {
                     layoutAutoSallon.setVisibility(View.GONE);
+                    tipi = 1;
                 }
+            }
+        });
+
+        gabimEmri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Emri duhet të jetë më i gjatë se 2 karaktere", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimMbiemri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Mbiemri duhet të jetë më i gjatë se 2 karaktere", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimDatelindja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Ju lutem vendosni datëlindjen tuaj", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimQyteti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Ju lutem zgjidhni qytetin", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimTel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Numri i telefonit duhet të jetë në formatin:\n04X123456", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Ju lutem shënoni një email valide", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Fjalëkalimi duhet të jetë i gjatë së paku 6 karaktere", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        gabimPass2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pass.equals(pass2))
+                    Toast.makeText(getContext(), "Fjalëkalimi duhet të jetë i gjatë së paku 6 karaktere", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getContext(), "Fjalëkalimet nuk përputhen", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -149,38 +235,99 @@ public class KrijoLlogariFragment extends Fragment {
             public void onClick(View v) {
                 etKrijoEmri.setText("");
                 etKrijoMbiemri.setText("");
-                //rikthehet data
+                etKrijoNumri.setText("");
+                tvDatelindja.setText("Datëlindja");
                 spinnerKrijoQyteti.setSelection(0);
                 etKrijoEmail.setText("");
                 etKrijoPass.setText("");
                 etKrijoKonfirmoPass.setText("");
                 radioPrivate.callOnClick();
                 etKrijoSalloni.setText("");
-                 //resetohet lokacioni ne harte
+                //resetohet lokacioni ne harte
+                //
+                //
+                //
 
             }
         });
-
-        etKrijoKonfirmoPass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus)
-                {
-                    if(!etKrijoPass.getText().toString().equals(etKrijoKonfirmoPass.getText().toString()))
-                    {
-                        Toast.makeText(getContext(), "Fjalëkalimet nuk përputhen",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
 
         btnRuaj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etKrijoEmail.getText().toString();
-                String pass = etKrijoPass.getText().toString();
-                regjistrimiKredencialeve(email,pass);
+                int gabime=0;
+                emri = etKrijoEmri.getText().toString().trim();
+                mbiemri = etKrijoMbiemri.getText().toString().trim();
+                email = etKrijoEmail.getText().toString();
+                pass = etKrijoPass.getText().toString();
+                pass2 = etKrijoKonfirmoPass.getText().toString().trim();
+                tel = etKrijoNumri.getText().toString().trim();
+                qyteti = spinnerKrijoQyteti.getSelectedItemPosition();
+
+                if(emri.isEmpty() || emri.length()<3) {
+                    gabime++;
+                    gabimEmri.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimEmri.setVisibility(View.GONE);
+                }
+
+                if(mbiemri.isEmpty() || mbiemri.length()<3) {
+                    gabime++;
+                    gabimMbiemri.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimMbiemri.setVisibility(View.GONE);
+                }
+
+                if(tvDatelindja.getText().toString().trim().equals("Datëlindja")) {
+                    gabime++;
+                    gabimDatelindja.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimDatelindja.setVisibility(View.GONE);
+                }
+
+                if(qyteti==0) {
+                    gabime++;
+                    gabimQyteti.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimQyteti.setVisibility(View.GONE);
+                }
+
+                if(tel.isEmpty() || tel.length()!=9) {
+                    gabime++;
+                    gabimTel.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimTel.setVisibility(View.GONE);
+                }
+
+                if(email.isEmpty() || email.length()<10) {
+                    gabime++;
+                    gabimEmail.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimEmail.setVisibility(View.GONE);
+                }
+
+                if(pass.length()<6 || !pass.equals(pass2)) {
+                    gabime++;
+                    gabimPass.setVisibility(View.VISIBLE);
+                    gabimPass2.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gabimPass.setVisibility(View.GONE);
+                    gabimPass2.setVisibility(View.GONE);
+                }
+
+                if(gabime ==0){
+                    regjistrimiKredencialeve(email,pass);
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Ju lutem plotësoni fushat me të dhëna të sakta!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -195,6 +342,7 @@ public class KrijoLlogariFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    regjistroPerdoruesin();
                     progressDialog.hide();
                     Toast.makeText(getActivity(), "Regjistrimi u krye me sukses!", Toast.LENGTH_LONG).show();
                 } else {
@@ -203,5 +351,15 @@ public class KrijoLlogariFragment extends Fragment {
                 }
             }
         });
+    }
+
+    //funksioni per ruajtjen e te dhenave te userit ne databaze
+    private void regjistroPerdoruesin()
+    {
+        firebaseAuth.signInWithEmailAndPassword(etKrijoEmail.getText().toString(), etKrijoPass.getText().toString());
+        String data = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+        User user = new User(emri, mbiemri, email, datelindja, qyteti, tel, tipi, data, data);
+        useri = FirebaseAuth.getInstance().getCurrentUser();
+        dRef.child("users").child(useri.getUid()).setValue(user);
     }
 }
