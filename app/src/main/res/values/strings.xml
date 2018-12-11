@@ -59,6 +59,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="shkronjat">abcçdeëfghijkmnopqrstuvxyzABCÇDEËFGHIJKLMNOPQRSTUVXYZ</string>
+    <string name="title_activity_user">UserActivity</string>
 
 
 </resources>

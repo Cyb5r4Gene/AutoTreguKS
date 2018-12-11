@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import rks.youngdevelopers.autotreguks.KryefaqjaActivity;
 import rks.youngdevelopers.autotreguks.R;
+import rks.youngdevelopers.autotreguks.UserActivity;
 
 public class KerkoFragment extends Fragment {
     @Nullable
@@ -22,6 +25,12 @@ public class KerkoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((KryefaqjaActivity) getActivity()).getSupportActionBar().setTitle(R.string.kerko);
+
+        if(FirebaseAuth.getInstance().getCurrentUser()==null)
+            ((KryefaqjaActivity) getActivity()).getSupportActionBar().setTitle(R.string.kerko);
+        else
+            ((UserActivity) getActivity()).getSupportActionBar().setTitle(R.string.kerko);
+
+
     }
 }

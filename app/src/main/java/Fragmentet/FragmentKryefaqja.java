@@ -13,8 +13,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import rks.youngdevelopers.autotreguks.KryefaqjaActivity;
 import rks.youngdevelopers.autotreguks.R;
+import rks.youngdevelopers.autotreguks.UserActivity;
 
 public class FragmentKryefaqja extends Fragment {
 
@@ -33,7 +36,11 @@ public class FragmentKryefaqja extends Fragment {
         super.onViewCreated(v, savedInstanceState);
 
         //ketu zhvillohet interaksioni me UI te FragmentKryefaqja
-        ((KryefaqjaActivity) getActivity()).getSupportActionBar().setTitle(R.string.kryefaqja);
+        if(FirebaseAuth.getInstance().getCurrentUser()==null)
+            ((KryefaqjaActivity) getActivity()).getSupportActionBar().setTitle(R.string.kryefaqja);
+        else
+            ((UserActivity) getActivity()).getSupportActionBar().setTitle("Kryefaqja");
+
         btnKerko = (Button) v.findViewById(R.id.btnKerko);
 
         layoutFamiljar = (RelativeLayout)v.findViewById(R.id.layoutFamiljar);
