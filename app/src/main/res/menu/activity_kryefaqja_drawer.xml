@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
@@ -19,34 +20,6 @@
 
     </group>
 
-    <item android:title="Llogaria">
-        <menu>
-            <item
-            android:id="@+id/nav_login"
-            android:icon="@mipmap/login"
-            android:title="@string/login"/>
-
-            <!--<item-->
-                <!--android:id="@+id/nav_profili"-->
-                <!--android:icon="@mipmap/profili"-->
-                <!--android:title="@string/profili"/>-->
-
-            <!--<item-->
-                <!--android:id="@+id/nav_post"-->
-                <!--android:icon="@mipmap/posto"-->
-                <!--android:title="@string/posto"/>-->
-
-            <!--<item-->
-                <!--android:id="@+id/nav_postimet"-->
-                <!--android:icon="@mipmap/posts"-->
-                <!--android:title="@string/postimet_e_mia"/>-->
-
-            <!--<item-->
-                <!--android:id="@+id/nav_logout"-->
-                <!--android:icon="@mipmap/logout"-->
-                <!--android:title="@string/logout"/>-->
-        </menu>
-    </item>
 
     <item android:title="Aplikacioni">
         <menu>
@@ -69,5 +42,12 @@
                 />
         </menu>
     </item>
+
+    <item android:title="@null" />
+    <item
+        android:id="@+id/nav_login"
+        android:title="@null"
+        app:showAsAction="collapseActionView" />
+    <item android:title="@null" />
 
 </menu>

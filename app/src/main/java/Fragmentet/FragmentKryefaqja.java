@@ -31,6 +31,8 @@ public class FragmentKryefaqja extends Fragment {
         return inflater.inflate(R.layout.fragment_kryefaqja, null);
     }
 
+
+
     @Override
     public void onViewCreated(@NonNull View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
@@ -52,10 +54,15 @@ public class FragmentKryefaqja extends Fragment {
                 //ketu vendoset eventi i klikimit te butonit kerko
                 Fragment fragment = new KerkoFragment();
                 FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
+                android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
                 ft.addToBackStack(null);
-                ft.replace(R.id.screen_kryefaqja, fragment);
+                if(FirebaseAuth.getInstance().getCurrentUser()==null)
+                    ft.replace(R.id.screen_kryefaqja, fragment);
+                else
+                    ft.replace(R.id.screen_user, fragment);
+
                 ft.commit();
+
 
             }
         });

@@ -1,5 +1,6 @@
 package Fragmentet;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import rks.youngdevelopers.autotreguks.Database;
 import rks.youngdevelopers.autotreguks.HyrjaActivity;
 import rks.youngdevelopers.autotreguks.LoginActivity;
 import rks.youngdevelopers.autotreguks.R;
@@ -39,6 +41,8 @@ public class LoginFragment extends Fragment {
     EditText etLoginEmail, etLoginPassword;
 
     CheckBox checkRuaj;
+
+    TextView tvForgot;
 
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
@@ -55,7 +59,7 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
@@ -71,6 +75,7 @@ public class LoginFragment extends Fragment {
         etLoginEmail.setText(userEmail);
         etLoginPassword.setText(userPass);
         checkRuaj = (CheckBox) view.findViewById(R.id.checkRuaj);
+        tvForgot = (TextView) view.findViewById(R.id.tvForgot);
 
         progressDialog = new ProgressDialog(getContext());
 
@@ -93,6 +98,46 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        tvForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog fjalekalimiReset = new Dialog(getContext());
+                fjalekalimiReset.setContentView(R.layout.fjalekalimi);
+                fjalekalimiReset.setTitle("Dërgo kërkesën për rivendosje të fjalëkalimit");
+                final EditText emailEdit = (EditText)fjalekalimiReset.findViewById(R.id.forgotEmail);
+                Button btnDergo = (Button)fjalekalimiReset.findViewById(R.id.btnReseto);
+                Button btnAnuloResetimin = (Button)fjalekalimiReset.findViewById(R.id.btnAnuloResetimin);
+                btnDergo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(!emailEdit.getText().toString().trim().isEmpty())
+                        {
+                            FirebaseAuth.getInstance().sendPasswordResetEmail(emailEdit.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Snackbar.make(view, "Kërkesa per resetim të fjalekalimit u dërgua në E-mail!", Snackbar.LENGTH_LONG).show();
+                                        fjalekalimiReset.dismiss();
+                                    } else {
+                                        Snackbar.make(view, "Rivendosja e fjalëklimit nuk u mundesua! Ju lutem, provoni me vone!", Snackbar.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                        } else {
+                            Snackbar.make(v, "Ju lutem shkruani e-mailin tuaj!", Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                btnAnuloResetimin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        fjalekalimiReset.dismiss();
+                    }
+                });
+                fjalekalimiReset.show();
+            }
+        });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,22 +153,20 @@ public class LoginFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog.setMessage("Duke u kyçur...!");
         progressDialog.show();
-        firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+        Database.loginUser(email, pass).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     //ketu hapet user activity
+                    sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                    editor = sharedPref.edit();
                     if (checkRuaj.isChecked()) {
-                        sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                        editor = sharedPref.edit();
                         editor.putString("email", email);
                         editor.putString("pass", pass);
                         editor.commit();
                     } else {
-                        sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                        editor = sharedPref.edit();
-                        editor.putString("email", " ");
-                        editor.putString("pass", " ");
+                        editor.remove("email");
+                        editor.remove("pass");
                         etLoginEmail.setText("");
                         etLoginPassword.setText("");
                     }
@@ -139,4 +182,6 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+
+
 }

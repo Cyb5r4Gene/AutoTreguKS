@@ -56,10 +56,11 @@
 
                 <ImageView
                     android:layout_width="fill_parent"
-                    android:layout_height="143dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:src="@mipmap/family" />
+                    android:src="@mipmap/family"
+                    android:adjustViewBounds="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,7 +85,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/r35" />
+                    android:src="@mipmap/r35"
+                    android:adjustViewBounds="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -111,7 +113,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/xc" />
+                    android:src="@mipmap/xc"
+                    android:adjustViewBounds="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,7 +141,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/suv" />
+                    android:src="@mipmap/suv"
+                    android:adjustViewBounds="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -164,7 +168,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/viano1" />
+                    android:src="@mipmap/viano1"
+                    android:adjustViewBounds="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -192,7 +197,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/transporter" />
+                    android:src="@mipmap/transporter"
+                    android:adjustViewBounds="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"

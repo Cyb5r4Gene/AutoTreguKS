@@ -58,7 +58,6 @@
                     style="@style/styleKrijoLlogari"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="@string/shkronjat"
                     android:hint="Emri"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
@@ -84,7 +83,6 @@
                     style="@style/styleKrijoLlogari"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="@string/shkronjat"
                     android:hint="Mbiemri"
                     android:imeOptions="actionNext"
                     android:inputType="text" />
@@ -129,48 +127,6 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <Spinner
-                    android:id="@+id/spinnerKrijoQyteti"
-                    style="@style/styleKrijoLlogari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/krijo_background"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:spinnerMode="dropdown">
-
-                </Spinner>
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="-50dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_toRightOf="@id/spinnerKrijoQyteti"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/drop" />
-
-
-                <ImageView
-                    android:id="@+id/gabimQyteti"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -198,6 +154,333 @@
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTipi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/group_prapavija"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="TIPI I LLOGARISË"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioPrivate"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:checked="true"
+                    android:text="Private" />
+
+                <RadioButton
+                    android:id="@+id/radioAutoSallon"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="Auto Sallon" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/layoutAutoSallon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etKrijoAutosalloni"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Emri i Auto-Sallonit"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+
+                    <ImageView
+                        android:id="@+id/gabimAutosalloni"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/gabim"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etAutosalloniTel"
+                        style="@style/styleKrijoLlogari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Nr.tel i Auto-Sallonit"
+                        android:imeOptions="actionNext"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Nese ndryshon nga ai lartë"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="10dp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etPershkrimiAutosallonit"
+                        style="@style/styleKrijoLlogari"
+                        android:background="@drawable/krijo_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Pershkrim i Shkurter i Autosallonit"
+                        android:imeOptions="actionNext"
+                        android:inputType="text|textMultiLine"
+                        android:gravity="top"
+                        android:maxLines="10"
+                        android:minLines="3"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/gabimPershkrimi"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/gabim"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/group_prapavija"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/adresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="ADRESA"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"/>
+
+            <TextView
+                android:id="@+id/tvAdresaAutosallonit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:text="E AUTOSALLONIT"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/adresa"
+                android:visibility="gone"/>
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etKrijoRruga"
+                style="@style/styleKrijoLlogari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Rruga"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+            <ImageView
+                android:id="@+id/gabimRruga"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/gabim"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etKrijoNr"
+                style="@style/styleKrijoLlogari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nr. shtëpisë"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+            <ImageView
+                android:id="@+id/gabimNr"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/gabim"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etKrijoKodiPostal"
+                style="@style/styleKrijoLlogari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Kodi Postal"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+            <ImageView
+                android:id="@+id/gabimKodiPostal"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/gabim"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Spinner
+                android:id="@+id/spinnerKrijoQyteti"
+                style="@style/styleKrijoLlogari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/krijo_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:spinnerMode="dropdown">
+
+            </Spinner>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="-50dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/spinnerKrijoQyteti"
+                android:scaleType="fitXY"
+                android:src="@mipmap/drop" />
+
+
+            <ImageView
+                android:id="@+id/gabimQyteti"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/gabim"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnQyteti"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:hint="Lokacioni në hartë"
+                android:textColorHint="@color/teksti"
+                android:background="@drawable/krijo_background"
+                android:textColor="@color/teksti"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Opsionale"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -296,111 +579,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutTipi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/group_prapavija"
-            android:orientation="vertical"
-            android:paddingBottom="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="TIPI I LLOGARISË"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioPrivate"
-                    style="@style/styleKrijoLlogari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:checked="true"
-                    android:text="Private" />
-
-                <RadioButton
-                    android:id="@+id/radioAutoSallon"
-                    style="@style/styleKrijoLlogari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:text="Auto Sallon" />
-
-            </RadioGroup>
-
-            <LinearLayout
-                android:id="@+id/layoutAutoSallon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/etKrijoAutosalloni"
-                        style="@style/styleKrijoLlogari"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="Emri i Auto-Sallonit"
-                        android:imeOptions="actionDone"
-                        android:inputType="text" />
-
-                    <ImageView
-                        android:id="@+id/gabimAutosalloni"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@mipmap/gabim"
-                        android:visibility="gone" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tvAdresa"
-                        style="@style/styleKrijoLlogari"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/krijo_background"
-                        android:text="Adresa e plotë e Auto-Sallonit"
-                        android:textColor="@color/text_hint" />
-
-                    <ImageView
-                        android:id="@+id/gabimAdresa"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@mipmap/gabim"
-                        android:visibility="gone" />
-                </RelativeLayout>
-
-
-            </LinearLayout>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

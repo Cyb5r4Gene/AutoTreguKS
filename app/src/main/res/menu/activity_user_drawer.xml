@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -16,48 +17,41 @@
             android:id="@+id/nav_saved_user"
             android:icon="@mipmap/saved"
             android:title="Postimet e ruajtura" />
-
-    </group>
-
-    <item android:title="Llogaria">
-        <menu>
-            <item
+        <item
             android:id="@+id/nav_post"
             android:icon="@mipmap/posto"
-            android:title="@string/posto"/>
-
-            <item
+            android:title="@string/posto" />
+        <item
             android:id="@+id/nav_postimet"
             android:icon="@mipmap/posts"
-            android:title="@string/postimet_e_mia"/>
-
-            <item
-            android:id="@+id/nav_logout"
-            android:icon="@mipmap/logout"
-            android:title="@string/logout"/>
-        </menu>
-    </item>
+            android:title="@string/postimet_e_mia" />
+    </group>
 
     <item android:title="Aplikacioni">
         <menu>
             <item
                 android:id="@+id/nav_settings_user"
                 android:icon="@mipmap/settings"
-                android:title="@string/preferencat"
-                />
+                android:title="@string/preferencat" />
 
             <item
                 android:id="@+id/nav_help_user"
                 android:icon="@mipmap/help"
-                android:title="@string/ndihma"
-                />
+                android:title="@string/ndihma" />
 
             <item
                 android:id="@+id/nav_gabime_user"
                 android:icon="@mipmap/report"
-                android:title="@string/raporto"
-                />
+                android:title="@string/raporto" />
         </menu>
     </item>
+    <item
+        android:id="@+id/nav_profili"
+        android:title="@null" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="@null"
+        app:showAsAction="collapseActionView" />
+    <item android:title="@null" />
 
 </menu>

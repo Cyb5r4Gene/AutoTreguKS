@@ -79,8 +79,7 @@
         android:layout_marginTop="40dp"
         android:text="Ruaj përdoruesin"
         android:textColor="@color/teksti"
-        android:layout_marginLeft="20dp"
-        android:checked="true"/>
+        android:layout_marginLeft="20dp"/>
 
     <Button
         android:id="@+id/btnLogin"
@@ -94,7 +93,8 @@
         android:text="Login"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"/>
 </RelativeLayout>
 
 

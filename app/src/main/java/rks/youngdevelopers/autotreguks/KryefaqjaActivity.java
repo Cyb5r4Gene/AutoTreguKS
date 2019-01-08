@@ -41,6 +41,7 @@ public class KryefaqjaActivity extends AppCompatActivity
 
         // thirret fragmenti kryefaqja
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
+        navigationView.getMenu().findItem(R.id.nav_login).setActionView(R.layout.login_button);
 
 
         }

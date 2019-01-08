@@ -60,6 +60,8 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="shkronjat">abcçdeëfghijkmnopqrstuvxyzABCÇDEËFGHIJKLMNOPQRSTUVXYZ</string>
     <string name="title_activity_user">UserActivity</string>
+    <string name="action_edit">Ndrysho</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
