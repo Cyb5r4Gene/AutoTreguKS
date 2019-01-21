@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class HyrjaActivity extends AppCompatActivity {
@@ -23,11 +24,18 @@ public class HyrjaActivity extends AppCompatActivity {
           {
               try{
                   sleep(1000);
-                  if(FirebaseAuth.getInstance().getCurrentUser()==null) {
+                  FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                  FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                  if(firebaseUser==null) {
                       faqja = new Intent(getApplicationContext(), KryefaqjaActivity.class);
                   }
                   else {
-                      faqja = new Intent(getApplicationContext(), UserActivity.class);
+                      if(firebaseUser.isEmailVerified())
+                          faqja = new Intent(getApplicationContext(), UserActivity.class);
+                      else {
+                          faqja = new Intent(getApplicationContext(), KryefaqjaActivity.class);
+                          firebaseAuth.signOut();
+                      }
                   }
                   startActivity(faqja);
               }

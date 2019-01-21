@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_hint">
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/recyclerPostKryesore"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@drawable/test"-->
+    <!--android:layout_margin="5dp">-->
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/test">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/postMarka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvMarkaID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Marka: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostMarka"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Përcakto markën" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postModeli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="false"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postMarka">
+
+                <TextView
+                    android:id="@+id/tvModeliID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Modeli: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostModeli"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Përcakto modelin" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postKarburanti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="false"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postModeli">
+
+                <TextView
+                    android:id="@+id/tvKarburantiID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Karburanti: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostKarburanti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Përcakto karburantin" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postVarianti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postKarburanti">
+
+                <TextView
+                    android:id="@+id/tvVariantiID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Varianti i modelit: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostVarianti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Përcakto variantin" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postKarroceria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postVarianti">
+
+                <TextView
+                    android:id="@+id/tvKarroceriaID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tipi i karrocerisë: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostKarroceria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Përcakto formën e veturës" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postDyer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postKarroceria">
+
+                <TextView
+                    android:id="@+id/tvDyerID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Numri i dyerve: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostDyer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Përcakto numrin e dyerve" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postViti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postDyer">
+
+                <TextView
+                    android:id="@+id/tvVitiID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regjistrimi i parë: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostViti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postKm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postViti">
+
+                <TextView
+                    android:id="@+id/tvKmID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Të kaluara (km): *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etKm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postDefekt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postKm">
+
+                <TextView
+                    android:id="@+id/tvDefektID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Veturë me defekt? "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostDefekt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postAksidentuar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postDefekt">
+
+                <TextView
+                    android:id="@+id/tvAksidentID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Veturë e aksidentuar? "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostAksidentuar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postTransmisioni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postAksidentuar">
+
+                <TextView
+                    android:id="@+id/tvTransmisioniID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transmisioni: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostTransmisioni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postMotori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postTransmisioni">
+
+                <TextView
+                    android:id="@+id/tvFuqiaID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fuqia motorike (KW):"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etFuqia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postCmimi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postMotori">
+
+                <TextView
+                    android:id="@+id/tvCmimiID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Çmimi: *"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etCmimi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="&#8364;"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+
+                <CheckBox
+                    android:id="@+id/checkNegociueshem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I Negociueshëm" />
+
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/hyrja_gradient">
+
+    <TextView
+        android:id="@+id/tvSukses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Llogaria u krijua me sukses!"
+        android:textColor="@color/teksti"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Në mënyrë që të keni qasje në llogarinë tuaj, ju lutem verifikoni atë në linkun e dërguar në email-in tuaj."
+        android:textColor="@color/teksti"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+
+</LinearLayout>

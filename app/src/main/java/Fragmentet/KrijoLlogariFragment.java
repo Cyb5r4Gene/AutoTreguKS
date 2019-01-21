@@ -1,6 +1,7 @@
 package Fragmentet;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,15 +29,18 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-import rks.youngdevelopers.autotreguks.Database;
+import Database.RemoteDatabase;
+import rks.youngdevelopers.autotreguks.LoginActivity;
 import rks.youngdevelopers.autotreguks.MapsActivity;
 import rks.youngdevelopers.autotreguks.R;
 import rks.youngdevelopers.autotreguks.UserActivity;
@@ -49,9 +54,8 @@ public class KrijoLlogariFragment extends Fragment {
     TextView tvDatelindja, tvAuto;
     Spinner spinnerKrijoQyteti;
     public static LatLng adresaLatLng = null;
-    ImageView gabimEmri, gabimMbiemri, gabimDatelindja, gabimTel, gabimAutosalloni, gabimRruga, gabimNr, gabimKodi,
-            gabimEmail, gabimPass, gabimPass2, gabimQyteti;
-
+    ImageView gabimQyteti;
+    TextView tvSukses, tv2;
 
     LinearLayout layoutAutoSallon, layoutTipi;
 
@@ -59,12 +63,14 @@ public class KrijoLlogariFragment extends Fragment {
 
 
     FirebaseAuth firebaseAuth;
+    FirebaseUser fUser;
 
     String emri, mbiemri, datelindja, tel, emriAutosallonit, telAutosallonit, pershkrimiAutosallonit,
             adresaRruga, adresaNr, adresaKodi, email, pass, pass2;
 
 
-    int qyteti, tipi;
+    int qyteti;
+    String tipi = "1";
 
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -78,13 +84,7 @@ public class KrijoLlogariFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_krijo_llogari, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        View view = inflater.inflate(R.layout.fragment_krijo_llogari, container, false);
         spinnerKrijoQyteti = (Spinner) view.findViewById(R.id.spinnerKrijoQyteti);
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
                 .createFromResource(getActivity().getApplicationContext(), R.array.qytetet,
@@ -121,18 +121,7 @@ public class KrijoLlogariFragment extends Fragment {
         btnAdresa = (Button) view.findViewById(R.id.btnQyteti);
         tvDatelindja = (TextView) view.findViewById(R.id.tvKrijoDatelindja);
 
-        gabimEmri = (ImageView) view.findViewById(R.id.gabimEmri);
-        gabimMbiemri = (ImageView) view.findViewById(R.id.gabimMbiemri);
-        gabimEmail = (ImageView) view.findViewById(R.id.gabimEmail);
-        gabimPass = (ImageView) view.findViewById(R.id.gabimPass);
-        gabimPass2 = (ImageView) view.findViewById(R.id.gabimPass2);
-        gabimDatelindja = (ImageView) view.findViewById(R.id.gabimDatelindja);
         gabimQyteti = (ImageView) view.findViewById(R.id.gabimQyteti);
-        gabimTel = (ImageView) view.findViewById(R.id.gabimTel);
-        gabimAutosalloni = (ImageView) view.findViewById(R.id.gabimAutosalloni);
-        gabimRruga = (ImageView) view.findViewById(R.id.gabimRruga);
-        gabimNr = (ImageView) view.findViewById(R.id.gabimNr);
-        gabimKodi = (ImageView) view.findViewById(R.id.gabimKodiPostal);
 
 
         datelindja = "";
@@ -163,6 +152,7 @@ public class KrijoLlogariFragment extends Fragment {
                         android.R.style.Theme_Holo_Dialog_MinWidth,
                         mDateSetListener,
                         viti, muaji, dita);
+                dialogu.getDatePicker().setMaxDate(calendar.getTimeInMillis());
                 dialogu.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialogu.show();
             }
@@ -183,7 +173,7 @@ public class KrijoLlogariFragment extends Fragment {
                 if (radioAutoSallon.isChecked()) {
                     layoutAutoSallon.setVisibility(View.VISIBLE);
                     tvAuto.setVisibility(View.VISIBLE);
-                    tipi = 2;
+                    tipi = "2";
                 }
             }
         });
@@ -194,57 +184,8 @@ public class KrijoLlogariFragment extends Fragment {
                 if (radioPrivate.isChecked()) {
                     layoutAutoSallon.setVisibility(View.GONE);
                     tvAuto.setVisibility(View.GONE);
-                    tipi = 1;
+                    tipi = "1";
                 }
-            }
-        });
-
-        gabimEmri.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Emri duhet të jetë më i gjatë se 2 karaktere", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimMbiemri.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Mbiemri duhet të jetë më i gjatë se 2 karaktere", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimDatelindja.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Ju lutem vendosni datëlindjen tuaj", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimAutosalloni.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Ju lutem shkruani emrin e autosallonit", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimRruga.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Ju lutem shkruani emrin e rrugës", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimNr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Ju lutem shkruani numrin e shtëpisë", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimKodi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Ju lutem shkruani kodin postar", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -255,36 +196,6 @@ public class KrijoLlogariFragment extends Fragment {
             }
         });
 
-        gabimTel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Numri i telefonit duhet të jetë në formatin:\n04X123456", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Ju lutem shënoni një email valide", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Fjalëkalimi duhet të jetë i gjatë së paku 6 karaktere", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        gabimPass2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (pass.equals(pass2))
-                    Toast.makeText(getContext(), "Fjalëkalimi duhet të jetë i gjatë së paku 6 karaktere", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getContext(), "Fjalëkalimet nuk përputhen", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         btnAnulo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -304,7 +215,6 @@ public class KrijoLlogariFragment extends Fragment {
                 etKrijoRruga.setText("");
                 etKrijoNr.setText("");
                 etKrijoKodi.setText("");
-
             }
         });
 
@@ -329,53 +239,46 @@ public class KrijoLlogariFragment extends Fragment {
 
                 if (emri.isEmpty() || emri.length() < 3) {
                     gabime++;
-                    gabimEmri.setVisibility(View.VISIBLE);
-                } else {
-                    gabimEmri.setVisibility(View.GONE);
+                    etKrijoEmri.setError("Emri duhet të jetë më i gjatë se 2 karaktere");
+                    etKrijoEmri.requestFocus();
                 }
 
                 if (mbiemri.isEmpty() || mbiemri.length() < 3) {
                     gabime++;
-                    gabimMbiemri.setVisibility(View.VISIBLE);
-                } else {
-                    gabimMbiemri.setVisibility(View.GONE);
+                    etKrijoMbiemri.setError("Mbiemri duhet të jetë më i gjatë se 2 karaktere");
+                    etKrijoMbiemri.requestFocus();
                 }
 
                 if (tvDatelindja.getText().toString().trim().equals("Datëlindja")) {
                     gabime++;
-                    gabimDatelindja.setVisibility(View.VISIBLE);
-                } else {
-                    gabimDatelindja.setVisibility(View.GONE);
+                    tvDatelindja.setError("Ju lutem caktoni datëlindjen");
+                    tvDatelindja.requestFocus();
                 }
 
                 if (radioAutoSallon.isChecked()) {
                     if (emriAutosallonit.isEmpty() || emriAutosallonit.length() < 3) {
                         gabime++;
-                        gabimAutosalloni.setVisibility(View.VISIBLE);
-                    } else {
-                        gabimAutosalloni.setVisibility(View.GONE);
+                        etKrijoSalloni.setError("Emri i Autosallonit duhet të jetë më i gjatë se 2 karaktere");
+                        etKrijoEmri.requestFocus();
                     }
                 }
 
                 if (adresaRruga.isEmpty() || adresaRruga.length() < 3) {
                     gabime++;
-                    gabimRruga.setVisibility(View.VISIBLE);
-                } else {
-                    gabimRruga.setVisibility(View.GONE);
+                    etKrijoRruga.setError("Shënoni emrin e rrugës");
+                    etKrijoRruga.requestFocus();
                 }
 
                 if (adresaNr.isEmpty()) {
                     gabime++;
-                    gabimNr.setVisibility(View.VISIBLE);
-                } else {
-                    gabimNr.setVisibility(View.GONE);
+                    etKrijoNr.setError("Ju lutem shënoni numrin e adresës");
+                    etKrijoNr.requestFocus();
                 }
 
                 if (adresaKodi.isEmpty() || adresaKodi.length() < 4) {
                     gabime++;
-                    gabimKodi.setVisibility(View.VISIBLE);
-                } else {
-                    gabimKodi.setVisibility(View.GONE);
+                    etKrijoKodi.setError("Ju lutem shkruani kodin postar tuaj");
+                    etKrijoKodi.requestFocus();
                 }
 
                 if (qyteti == 0) {
@@ -387,37 +290,37 @@ public class KrijoLlogariFragment extends Fragment {
 
                 if (tel.isEmpty() || tel.length() != 9) {
                     gabime++;
-                    gabimTel.setVisibility(View.VISIBLE);
-                } else {
-                    gabimTel.setVisibility(View.GONE);
+                    etKrijoTelefoni.setError("Shkruani numër valid të telefonit");
+                    etKrijoTelefoni.requestFocus();
                 }
 
                 if (email.isEmpty() || email.length() < 10) {
                     gabime++;
-                    gabimEmail.setVisibility(View.VISIBLE);
-                } else {
-                    gabimEmail.setVisibility(View.GONE);
+                    etKrijoEmail.setError("Ju lutemi shkruani email valide");
+                    etKrijoEmail.requestFocus();
                 }
 
-                if (pass.length() < 6 || !pass.equals(pass2)) {
+                if (pass.length() < 6 )
+                {
+                    etKrijoPass.setError("Fjalekalimi duhet të jetë më i gjatë se 6 karaktere");
+                    etKrijoPass.requestFocus();
+                }
+                if(!pass.equals(pass2)) {
                     gabime++;
-                    gabimPass.setVisibility(View.VISIBLE);
-                    gabimPass2.setVisibility(View.VISIBLE);
-                } else {
-                    gabimPass.setVisibility(View.GONE);
-                    gabimPass2.setVisibility(View.GONE);
+                    etKrijoPass.setError("Fjalekalimet nuk përputhen");
+                    etKrijoPass.requestFocus();
+                    etKrijoKonfirmoPass.setError("Fjalekalimet nuk përputhen");
                 }
 
                 if (gabime == 0) {
                     progressDialog.show();
                     progressDialog.setMessage("Duke regjistruar perdoruesin...!");
-                    //Boolean b =Database.regjistrimiKredencialeve(email, pass);
 
-                    Database.regjistrimiKredencialeve(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    RemoteDatabase.regjistrimiKredencialeve(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Database.regjistroPerdoruesin(email, pass, emri, mbiemri, datelindja, tel, String.valueOf(tipi));
+                                RemoteDatabase.regjistroPerdoruesin(email, pass, emri, mbiemri, datelindja, tel, tipi);
                                 String lat, lng;
                                 if (adresaLatLng == null) {
                                     lat = "-";
@@ -427,75 +330,112 @@ public class KrijoLlogariFragment extends Fragment {
                                     lng = String.valueOf(adresaLatLng.longitude);
                                 }
 
-                                Database.regjistroAdresen(adresaRruga, adresaNr, adresaKodi, String.valueOf(qyteti), lat, lng);
+                                RemoteDatabase.regjistroAdresen(adresaRruga, adresaNr, adresaKodi, String.valueOf(qyteti), lat, lng);
 
                                 if (radioAutoSallon.isChecked()) {
-                                    Database.regjistroAutosallonin(emriAutosallonit, pershkrimiAutosallonit, telAutosallonit);
+                                    RemoteDatabase.regjistroAutosallonin(emriAutosallonit, pershkrimiAutosallonit, telAutosallonit);
                                 }
 
-                                Intent objUserLogin = new Intent(getActivity().getApplicationContext(), UserActivity.class);
-                                startActivity(objUserLogin);
-
-                                Toast.makeText(getActivity(), "Regjistrimi u krye me sukses!", Toast.LENGTH_LONG).show();
+                                fUser = FirebaseAuth.getInstance().getCurrentUser();
+                                fUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            progressDialog.dismiss();
+                                            final Dialog verify = new Dialog(getActivity());
+                                            verify.setContentView(R.layout.dialog_information);
+                                            verify.setTitle("Verifiko emailin");
+                                            verify.show();
+                                            tvSukses = (TextView) verify.findViewById(R.id.tvSukses);
+                                            tv2 = (TextView) verify.findViewById(R.id.tv2);
+                                            Thread prit = new Thread() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        sleep(30000);
+                                                        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
+                                                                        Intent objUserLogin = new Intent(getActivity().getApplicationContext(), UserActivity.class);
+                                                                        startActivity(objUserLogin);
+                                                                    } else {
+                                                                        firebaseAuth.signOut();
+                                                                        Toast.makeText(getActivity(), "Llogaria nuk u verifikuar. " +
+                                                                                "\nPas verifikimit në email, ju mund të keni çasje në llogarinë tuaj përmes modulit 'KYÇu'", Toast.LENGTH_LONG).show();
+                                                                        LoginActivity.imgBack.callOnClick();
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+                                                        verify.dismiss();
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                            };
+                                            prit.start();
+                                        }
+                                    }
+                                });
                             } else {
-                                Toast.makeText(getActivity(), "Regjistrimi deshtoi!\nEmaili ekziston në databazë!", Toast.LENGTH_LONG).show();
+                                progressDialog.hide();
 
+                                try {
+                                    throw task.getException();
+                                } catch (FirebaseAuthException e) {
+                                    String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+
+                                    switch (errorCode) {
+
+
+                                        case "ERROR_INVALID_EMAIL":
+                                            Toast.makeText(getActivity(), "Formati i email-it është gabim", Toast.LENGTH_LONG).show();
+                                            etKrijoEmail.setError("TFormati i këtij email-i është gabim!");
+                                            etKrijoEmail.requestFocus();
+                                            break;
+
+                                        case "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL":
+                                            Toast.makeText(getActivity(), "Emaili ekziston në databazë", Toast.LENGTH_LONG).show();
+                                            etKrijoEmail.setError("Emaili ekziston në databazë");
+                                            etKrijoEmail.requestFocus();
+                                            break;
+
+                                        case "ERROR_EMAIL_ALREADY_IN_USE":
+                                            Toast.makeText(getActivity(), "Emaili ekziston në databazë", Toast.LENGTH_LONG).show();
+                                            etKrijoEmail.setError("Emaili ekziston në databazë");
+                                            etKrijoEmail.requestFocus();
+                                            break;
+
+                                        case "ERROR_CREDENTIAL_ALREADY_IN_USE":
+                                            Toast.makeText(getActivity(), "Ekziston llogari tjetër me këto kredenciale!", Toast.LENGTH_LONG).show();
+                                            break;
+                                    }
+
+
+                                }catch(FirebaseNetworkException e)
+                                {
+                                    Toast.makeText(getActivity(), "Nuk ka çasje në internet!", Toast.LENGTH_LONG).show();
+                                } catch (Exception e) {
+                                    Log.e("createUser:failed", e.getMessage());
+                                }
+                                //Toast.makeText(getActivity(), "Regjistrimi deshtoi!\nEmaili ekziston në databazë!", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
-
-                    progressDialog.hide();
-
                 } else {
                     Toast.makeText(getContext(), "Ju lutem plotësoni fushat me të dhëna të sakta!", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
+        return view;
     }
 
-    //funksioni per regjistrimin e kredencialeve te autentikimit te perdoruesit
-//    private void regjistrimiKredencialeve (String email, String pass)
-//    {
-//
-//        firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if (task.isSuccessful()) {
-//                    regjistroPerdoruesin();
-//                    Toast.makeText(getActivity(), "Regjistrimi u krye me sukses!", Toast.LENGTH_LONG).show();
-//                } else {
-//                    Toast.makeText(getActivity(), "Regjistrimi deshtoi!\nEmaili ekziston në databazë!", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
-//    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-    //funksioni per ruajtjen e te dhenave te userit ne databaze
-//    private void regjistroPerdoruesin()
-//    {
-//        firebaseAuth.signInWithEmailAndPassword(etKrijoEmail.getText().toString(), etKrijoPass.getText().toString());
-//        String data = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
-//        User user = new User(emri, mbiemri, email, datelindja, String.valueOf(adresaID), tel, String.valueOf(tipi), data, data);
-//        useri = FirebaseAuth.getInstance().getCurrentUser();
-//        dRef.child("users").child(useri.getUid()).setValue(user);
-//    }
-
-
-//    int PLACE_PICKER_REQUEST = 1;
-//
-//    public void adresaID()
-//    {
-//        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-//
-//        try {
-//            getActivity().startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
-//        } catch (GooglePlayServicesRepairableException e) {
-//            e.printStackTrace();
-//        } catch (GooglePlayServicesNotAvailableException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
+        }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Llogaria juaj nuk është e verifikuar!"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/btnVerifiko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verifiko Llogarinë"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/teksti"/>
+
+</LinearLayout>

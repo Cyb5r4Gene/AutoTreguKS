@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,9 +24,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import Database.RemoteDatabase;
 import Fragmentet.FragmentKryefaqja;
 import Fragmentet.KerkoFragment;
 import Fragmentet.PostimetFragment;
+import models.Autosallon;
+import models.User;
 
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -123,7 +125,8 @@ public class UserActivity extends AppCompatActivity
                 startActivity(new Intent(getApplicationContext(), HyrjaActivity.class));
                 break;
             case (R.id.nav_post):
-                //posto
+                Intent objPost = new Intent(this, PostActivity.class);
+                startActivity(objPost);
                 break;
         }
 
@@ -151,14 +154,14 @@ public class UserActivity extends AppCompatActivity
         });
 
         try {
-            perdoruesi = Database.getPerdoruesi(dataSnapshot, userID);
+            perdoruesi = RemoteDatabase.getPerdoruesi(dataSnapshot, userID);
             tvEmriMbiemri.setText(perdoruesi.getEmri() + " " + perdoruesi.getMbiemri());
             if(perdoruesi.getTipiLlogarise().equals("1"))
             {
                 tvAutosalloniDescription.setVisibility(View.GONE);
             }
             else {
-                Autosallon autosallon = Database.getAutosalloni(dataSnapshot, userID);
+                Autosallon autosallon = RemoteDatabase.getAutosalloni(dataSnapshot, userID);
                 tvAutosalloniDescription.setText(autosallon.getEmri());
                 tvAutosalloniDescription.setVisibility(View.VISIBLE);
             }

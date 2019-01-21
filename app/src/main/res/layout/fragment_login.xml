@@ -79,7 +79,8 @@
         android:layout_marginTop="40dp"
         android:text="Ruaj përdoruesin"
         android:textColor="@color/teksti"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:checked="true"/>
 
     <Button
         android:id="@+id/btnLogin"

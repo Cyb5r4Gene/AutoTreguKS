@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_hint">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/test">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/postTargat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Targa: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostTargat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postDogana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postTargat"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I doganuar? "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostDoganuar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A është vetura e doganuar?"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postRegjistrim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postDogana"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regjistrim deri më: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostRegjistrim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postPronar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postRegjistrim"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Numri i pronarëve: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostPronar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postUlse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postPronar">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Numri i ulëseve: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostUlse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postNgjyra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postUlse"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ngjyra: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostNgjyra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+                <RadioGroup
+                    android:id="@+id/group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:checkedButton="@id/btnMetalike">
+                    <RadioButton
+                        android:id="@+id/btnMetalike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Metalike"/>
+
+                    <RadioButton
+                        android:id="@+id/btnMat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mat"
+                        android:layout_marginStart="20dp"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/postMateriali"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postNgjyra">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Materiali i enterierit "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostMateriali"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/postNgjyraEnterier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/underlined"
+                android:backgroundTint="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postMateriali">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ngjyra e enterierit: "
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostNgjyraMaterialit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pa përcaktuar"/>
+
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

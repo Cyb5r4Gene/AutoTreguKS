@@ -49,9 +49,6 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/etKrijoEmri"
@@ -62,21 +59,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="text" />
 
-                <ImageView
-                    android:id="@+id/gabimEmri"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
 
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/etKrijoMbiemri"
@@ -87,21 +70,6 @@
                     android:imeOptions="actionNext"
                     android:inputType="text" />
 
-                <ImageView
-                    android:id="@+id/gabimMbiemri"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:digits="@string/shkronjat"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/tvKrijoDatelindja"
@@ -116,21 +84,6 @@
                     android:text="Datëlindja"
                     android:textColor="@color/text_hint" />
 
-                <ImageView
-                    android:id="@+id/gabimDatelindja"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <EditText
                     android:id="@+id/etKrijoNumri"
                     style="@style/styleKrijoLlogari"
@@ -141,16 +94,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number" />
 
-                <ImageView
-                    android:id="@+id/gabimTel"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
+
 
 
         </LinearLayout>
@@ -205,11 +149,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/etKrijoAutosalloni"
@@ -220,16 +161,6 @@
                         android:imeOptions="actionNext"
                         android:inputType="text" />
 
-                    <ImageView
-                        android:id="@+id/gabimAutosalloni"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@mipmap/gabim"
-                        android:visibility="gone" />
-                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -257,10 +188,6 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                     <EditText
                         android:id="@+id/etPershkrimiAutosallonit"
                         style="@style/styleKrijoLlogari"
@@ -276,16 +203,6 @@
                         />
 
 
-                    <ImageView
-                        android:id="@+id/gabimPershkrimi"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@mipmap/gabim"
-                        android:visibility="gone" />
-                </RelativeLayout>
 
 
             </LinearLayout>
@@ -333,12 +250,6 @@
 
         </RelativeLayout>
 
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
             <EditText
                 android:id="@+id/etKrijoRruga"
                 style="@style/styleKrijoLlogari"
@@ -348,21 +259,6 @@
                 android:imeOptions="actionNext"
                 android:inputType="text" />
 
-            <ImageView
-                android:id="@+id/gabimRruga"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:src="@mipmap/gabim"
-                android:visibility="gone" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/etKrijoNr"
@@ -371,22 +267,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Nr. shtëpisë"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
-
-            <ImageView
-                android:id="@+id/gabimNr"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:src="@mipmap/gabim"
-                android:visibility="gone" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/etKrijoKodiPostal"
@@ -395,18 +276,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Kodi Postal"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="number" />
 
-            <ImageView
-                android:id="@+id/gabimKodiPostal"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:src="@mipmap/gabim"
-                android:visibility="gone" />
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -439,10 +310,10 @@
 
             <ImageView
                 android:id="@+id/gabimQyteti"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="31dp"
                 android:layout_marginTop="10dp"
                 android:src="@mipmap/gabim"
                 android:visibility="gone" />
@@ -502,9 +373,6 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/etKrijoEmail"
@@ -515,21 +383,6 @@
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress" />
 
-                <ImageView
-                    android:id="@+id/gabimEmail"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/etKrijoPassword"
@@ -541,21 +394,6 @@
                     android:inputType="textPassword"
                     android:textSize="15sp" />
 
-                <ImageView
-                    android:id="@+id/gabimPass"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <EditText
                     android:id="@+id/etKrijoKonfirmPassword"
                     style="@style/styleKrijoLlogari"
@@ -565,17 +403,6 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:textSize="15sp" />
-
-                <ImageView
-                    android:id="@+id/gabimPass2"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/gabim"
-                    android:visibility="gone" />
-            </RelativeLayout>
 
         </LinearLayout>
 

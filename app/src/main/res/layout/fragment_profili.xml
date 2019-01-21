@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_prapavija"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/relativeBack"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@drawable/profil_background">
+            </RelativeLayout>
+
+            <!--<com.jgabrielfreitas.core.BlurImageView-->
+                <!--android:id="@+id/relativeBack"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="220dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:scaleType="center"-->
+                <!--app:radius="24"-->
+                <!--android:layout_margin="@dimen/activity_horizontal_margin"-->
+                <!--android:src="@mipmap/profile_image" />-->
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfiliBardh"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="8dp"
+                android:src="@mipmap/bardh"
+                app:layout_constraintBottom_toTopOf="@+id/tvProfiliEmri"
+                app:layout_constraintEnd_toEndOf="@+id/relativeBack"
+                app:layout_constraintStart_toStartOf="@+id/relativeBack" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfiliUserit"
+                android:layout_width="142dp"
+                android:layout_height="142dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:src="@mipmap/profili"
+                app:layout_constraintBottom_toBottomOf="@+id/imgProfiliBardh"
+                app:layout_constraintEnd_toEndOf="@+id/imgProfiliBardh"
+                app:layout_constraintStart_toStartOf="@+id/imgProfiliBardh"
+                app:layout_constraintTop_toTopOf="@+id/imgProfiliBardh" />
+
+            <TextView
+                android:id="@+id/tvProfiliEmri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15sp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="Emri Mbiemri"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/relativeBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvLlogaria"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:gravity="center"
+                android:text="LLOGARIA"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/relativeBack"/>
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@+id/tvLlogaria">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/email" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="E-mail"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvProfilEmail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="shembull@autotregu.ks"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/telefon" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Nr.Telefonit"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tvProfilTel"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="+38349123456"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/calendar1" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Datëlindja"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tvProfilDatelindja"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="dd-MM-yyyy"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"/>
+                </LinearLayout>
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_marginStart="10dp"-->
+                    <!--android:layout_marginEnd="10dp"-->
+                    <!--android:background="@drawable/underline_profile">-->
+
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="30dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:src="@mipmap/adresa" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:text="Adresa"-->
+                        <!--android:textColor="@android:color/black" />-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/tvProfilAdresa"-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:text="Rr. Agim Ramadani, 10000 PrishtinQ"-->
+                        <!--android:textColor="@color/hiri"-->
+                        <!--android:textAlignment="viewEnd"/>-->
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/registered" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Anëtarësuar"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/tvProfilRegistered"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="dd-MM-yy mm:HH:ss"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAutoservisi"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:gravity="center"
+                android:text="AUTOSALLONI"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+
+            <LinearLayout
+                android:id="@+id/layoutProfilAutosallon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvAutoservisi">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/emri" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Emri"
+                        android:textColor="@android:color/black" />
+
+
+                    <TextView
+                        android:id="@+id/tvProfiliAutosalloni"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Test"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/telefon" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Nr.Tel"
+                        android:textColor="@android:color/black" />
+
+
+                    <TextView
+                        android:id="@+id/tvProfilTelAutosallonit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Rr. Agim Ramadani, 10000 Prishtinë"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/edit"
+                        android:tint="@color/colorPrimaryDark"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Përshkrimi"
+                        android:textColor="@android:color/black" />
+
+
+                    <TextView
+                        android:id="@+id/tvProfilPershkrimiAutosallonit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Pershkrimi i Autosallonit"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"
+                        android:inputType="text|textMultiLine"
+                        android:minLines="2"
+                        android:maxLines="6"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvAdresa"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:gravity="center"
+                android:text="ADRESA"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/layoutProfilAutosallon"/>
+
+            <LinearLayout
+                android:id="@+id/layoutAdresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvAdresa">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/underline_profile">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/adresa" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Adresa"
+                        android:textColor="@android:color/black" />
+
+
+                    <TextView
+                        android:id="@+id/tvProfilAdresa"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Rr. Agim Ramadani, 10000 Prishtinë"
+                        android:textColor="@color/hiri"
+                        android:textAlignment="viewEnd"
+                        android:inputType="textMultiLine"
+                        android:minLines="1"
+                        android:maxLines="3"/>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

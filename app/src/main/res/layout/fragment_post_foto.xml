@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/layNgarko"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:gravity="center"-->
+        <!--app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnNgarko"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:text="Ngargo foto "-->
+            <!--android:textColor="@color/teksti"-->
+            <!--android:background="@drawable/profil_background"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recyclerImages"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/layNgarko">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/relLayout1">
+
+        <!--krijohet toolbari-->
+        <include layout="@layout/top_gallerytoolbar"/>
+        
+    </RelativeLayout>
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/relLayout1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="40">
+            <ImageView
+                android:id="@+id/imgGallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+            
+            <ProgressBar
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/progressBar"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:id="@+id/gridView"
+            android:numColumns="5"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp"
+            android:stretchMode="none"
+            android:layout_marginTop="1dp">
+        </GridView>
+    </LinearLayout>
+
+
+
+</LinearLayout>

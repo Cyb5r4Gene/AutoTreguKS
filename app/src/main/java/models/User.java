@@ -1,4 +1,4 @@
-package rks.youngdevelopers.autotreguks;
+package models;
 
 public class User {
     public String emri;

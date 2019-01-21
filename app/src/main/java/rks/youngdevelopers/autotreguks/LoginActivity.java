@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private SectionsPageAdapter sectionsPageAdapter;
     private ViewPager viewPager;
     TabLayout tabs;
-    ImageView imgBack;
+    public static ImageView imgBack;
 
     int PLACE_PICKER_REQUEST = 1;
 
@@ -59,17 +59,4 @@ public class LoginActivity extends AppCompatActivity {
         adapteri.addFragment(new KrijoLlogariFragment(), "Krijo Llogari");
         viewPager.setAdapter(adapteri);
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlacePicker.getPlace(data, this);
-                String toastMsg = String.format("Place: %s", place.getName());
-                Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
-            }
-        }
-    }
-
-
-
 }

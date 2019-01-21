@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="80dp"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="Fotografitë"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/krijo_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/editProfil"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@mipmap/profili" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/editProfilIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@mipmap/add_photo"
+                    app:layout_constraintBottom_toBottomOf="@id/editProfil"
+                    app:layout_constraintEnd_toEndOf="@id/editProfil" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Foto e Profilit"
+                    android:textColor="@color/prapavija"
+                    app:layout_constraintEnd_toEndOf="@id/editProfil"
+                    app:layout_constraintStart_toStartOf="@id/editProfil"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfil" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/editPhotoAutosallon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/editAutosallon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@mipmap/icon" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/editAutosallonIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@mipmap/add_photo"
+                    app:layout_constraintBottom_toBottomOf="@id/editAutosallon"
+                    app:layout_constraintEnd_toEndOf="@id/editAutosallon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Foto e Autosallonit"
+                    android:textColor="@color/prapavija"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/editAutosallon"
+                    app:layout_constraintTop_toBottomOf="@+id/editAutosallon" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="Llogaria"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+        <LinearLayout
+            android:id="@+id/linearTipiLlogarise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/krijo_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioP"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:checked="true"
+                    android:text="Private"
+                    android:textColor="@color/hiri" />
+
+                <RadioButton
+                    android:id="@+id/radioA"
+                    style="@style/styleKrijoLlogari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="Auto Sallon"
+                    android:textColor="@color/hiri" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/editLayoutAutosallon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/editEmriAutosallon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:hint="Emri i Autosallonit"
+                        android:inputType="text" />
+
+                    <ImageView
+                        android:id="@+id/gAutoEmri"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="-40dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="end"
+                        android:src="@mipmap/gabim"
+                        android:visibility="gone"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editAutoTel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:hint="Tel. Autosallonit"
+                        android:inputType="number" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editAutoPershkrimi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:clickable="true"
+                        android:hint="Pershkrimi Autosallonit"
+                        android:inputType="textMultiLine"
+                        android:maxLines="6"
+                        android:minLines="1" />
+
+
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="Adresa"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearTipiLlogarise" />
+
+        <LinearLayout
+            android:id="@+id/linearAdresa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/krijo_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearTipiLlogarise">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/editRruga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Rruga"
+                    android:inputType="text" />
+
+                <ImageView
+                    android:id="@+id/gRruga"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editNr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Numri i shtëpisë"
+                    android:inputType="number" />
+
+                <ImageView
+                    android:id="@+id/gNr"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editKodi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Kodi Postal"
+                    android:inputType="number" />
+
+                <ImageView
+                    android:id="@+id/gKodi"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Spinner
+                    android:id="@+id/editSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/underline_profile"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:spinnerMode="dropdown">
+
+                </Spinner>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="-50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/editSpinner"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/drop" />
+
+
+                <ImageView
+                    android:id="@+id/gQyteti"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/krijo_background"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                >
+
+                <com.google.android.gms.maps.MapView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/editMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="#00000000"
+                    android:clickable="true"
+                    map:uiCompass="true" />
+
+                <Button
+                    android:id="@+id/btnEditHarta"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:hint="Lokacioni në hartë"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:background="@color/colorPrimary"
+                    android:textColorHint="@color/teksti" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:text="Personale"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/krijo_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/editEmri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Emri"
+                    android:inputType="text" />
+
+                <ImageView
+                    android:id="@+id/gEmri"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editMbiemri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Mbiemri"
+                    android:inputType="text" />
+
+                <ImageView
+                    android:id="@+id/gMbiemri"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editDatelindja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:hint="Datëlindja"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/gDtl"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editTel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Telefoni"
+                    android:inputType="number" />
+
+                <ImageView
+                    android:id="@+id/gTel"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:text="E-mail"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearAdresa" />
+
+        <LinearLayout
+            android:id="@+id/linearEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/krijo_background"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearAdresa">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress" />
+
+                <ImageView
+                    android:id="@+id/gEmail"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/gabim"
+                    android:visibility="gone"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:clickable="false"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="Autentikimi"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearEmail" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/krijo_background"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearEmail">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/editPassVjeter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Fjalëkalimi i vjetër"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editPassRi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Fjalëkalimi i ri"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editPassRi2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:hint="Konfirmo Fjalëkalimin"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnNdryshoFjalekalimin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:padding="10dp"
+                android:text="Ndrysho fjalëkalimin"
+                android:textColor="@color/teksti"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnAnuloNdryshimin"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="220dp"
+                android:layout_marginTop="-59dp"
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:text="X"
+                android:textColor="@color/teksti"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

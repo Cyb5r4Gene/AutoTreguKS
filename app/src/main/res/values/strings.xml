@@ -56,6 +56,131 @@
         <item>Vushtrri</item>
         <item>Zveçan</item>
     </string-array>
+
+    <string-array name="kryesore">
+        <item>Marka: *</item>
+        <item>Modeli: *</item>
+        <item>Karburanti: *</item>
+        <item>Varianti i modelit: </item>
+        <item>Tipi i karrocerisë: *</item>
+        <item>Numri i dyerve: *</item>
+        <item>Regjistrimi i parë: *</item>
+        <item>Të kaluara (km): *</item>
+        <item>Veturë me defekt?</item>
+        <item>Veturë e aksidentuar?</item>
+        <item>Transmisioni: *</item>
+        <item>Fuqia motorike:</item>
+    </string-array>
+
+    <string-array name="kryesore_desc">
+        <item>Zgjedh markën</item>
+        <item>Zgjedh modelin</item>
+        <item>Zgjedh karburantin</item>
+        <item>Pa përcaktuar </item>
+        <item>Zgjedh formën e veturës</item>
+        <item>Zgjedh numrin e dyerve</item>
+        <item>Pa përcaktuar</item>
+        <item>Pa përcaktuar</item>
+        <item>Pa përcaktuar</item>
+        <item>Pa përcaktuar</item>
+        <item>Pa përcaktuar</item>
+        <item>Pa përcaktuar</item>
+    </string-array>
+
+    <string-array name="dyer">
+        <item>2/3</item>
+        <item>4/5</item>
+    </string-array>
+
+    <string-array name="opsione">
+        <item>Pa pëcaktuar</item>
+        <item>Po</item>
+        <item>Jo</item>
+    </string-array>
+
+    <string-array name="targat">
+        <item>Pa përcaktuar</item>
+        <item>Vendore</item>
+        <item>Të Shqipërisë</item>
+        <item>Të huaja</item>
+    </string-array>
+
+    <string-array name="transmisioni">
+        <item>Manual</item>
+        <item>Gjysem Automatik</item>
+        <item>Automatik</item>
+    </string-array>
+
+    <string-array name="ulse">
+        <item>Pa përcaktuar</item>
+        <item>1+1</item>
+        <item>2+1</item>
+        <item>3+1</item>
+        <item>4+1</item>
+        <item>5+1</item>
+        <item>6+1</item>
+    </string-array>
+
+    <string-array name="pronar">
+        <item>Pa përcaktuar</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="ngjyra">
+        <item>Pa përcaktuar</item>
+        <item>E bardhë</item>
+        <item>E kuqe</item>
+        <item>E kaltër</item>
+        <item>E verdhë</item>
+        <item>E zezë</item>
+        <item>E gjelbër</item>
+        <item>E hirtë</item>
+        <item>Vjollcë</item>
+    </string-array>
+
+    <string-array name="enterieri">
+        <item>Pa përcaktuar</item>
+        <item>Lëkurë</item>
+        <item>Gjysëm lëkurë</item>
+        <item>Mëndafsh</item>
+        <item>Tjetër</item>
+    </string-array>
+
+    <string-array name="ngjyraEnterier">
+        <item>Pa përcaktuar</item>
+        <item>E zezë</item>
+        <item>E hirtë</item>
+        <item>E kremtë</item>
+        <item>E kaftë</item>
+        <item>Tjetër</item>
+    </string-array>
+
+    <string-array name="kondicioneri">
+        <item>Pa përcaktuar</item>
+        <item>Nuk ka klimë</item>
+        <item>Klimë manuale</item>
+        <item>Klimë automatike</item>
+        <item>Klimë automatike 2 zonale</item>
+        <item>Klimë automatike 3 zonale</item>
+        <item>Klimë automatike 4 zonale</item>
+    </string-array>
+
+    <string-array name="airbag">
+        <item>Airbag të shoferit</item>
+        <item>Airbag anësor</item>
+        <item>Airbag të prapmë</item>
+        <item>Airbag të tjerë</item>
+    </string-array>
+
     <string name="title_activity_login">LoginActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="shkronjat">abcçdeëfghijkmnopqrstuvxyzABCÇDEËFGHIJKLMNOPQRSTUVXYZ</string>
