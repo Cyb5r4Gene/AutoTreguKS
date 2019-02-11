@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_hint"
+    android:orientation="vertical"
+    tools:context=".PostViewActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_post_view"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/postViewBack"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/teksti"
+                    android:text="Rezultati"
+                    android:textSize="20sp"
+                    android:layout_toRightOf="@id/postViewBack"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"/>
+
+
+                <ImageView
+                    android:id="@+id/imgSavePost"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_not_parked" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@color/text_hint">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/postViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                android:id="@+id/linearTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/underlined_recycler_search"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/postViewPager">
+
+                <TextView
+                    android:id="@+id/tvPostViewTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Titulli i plote i shpalljes"
+                    android:textColor="@color/prapavija"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvPostViewPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="x Euro"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearMainData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/underlined_recycler_search"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearTitle">
+
+                <TextView
+                    android:id="@+id/tvVehicle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_sedan"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="forma" />
+
+                <TextView
+                    android:id="@+id/firstRegistration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_date"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="viti prodhimit" />
+
+                <TextView
+                    android:id="@+id/tvKm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_road"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="kilometrat" />
+
+                <TextView
+                    android:id="@+id/tvFuel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_fuel"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="karburanti" />
+
+                <TextView
+                    android:id="@+id/tvPower"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_kw"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Fuqia" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearFirst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/underlined_recycler_search"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/linearMainData">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/underline_profile"
+                    android:text="Kryesore"
+                    android:textColor="@color/prapavija"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Gjendja e vetures" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Transmisioni" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Numri i ulëseve" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Numri i dyerve" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Targa" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Regjistrimi/Dogana" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Ngjyra" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Enterieri" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/tvCondition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Gjendja"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPostViewTransmission"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Transmisioni"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPostViewSeats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Numri"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPostViewDoors"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Numri"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPostViewLicencePlates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Targat"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPlatesDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Pershkrimi"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPostViewColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Ngjyra"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPostViewInterior"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Ngjyra, materiali"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearFeatures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/underlined_recycler_search"
+                android:orientation="vertical"
+                android:weightSum="100"
+                app:layout_constraintTop_toBottomOf="@id/linearFirst">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/underline_profile"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="Enterieri"
+                    android:textColor="@color/prapavija"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tvPostViewBluetooth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="@string/bluetooth" />
+
+                <TextView
+                    android:id="@+id/tvPostViewOnBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="On-Board Kompjuter" />
+
+                <TextView
+                    android:id="@+id/tvPostViewCd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="CD Player" />
+
+                <TextView
+                    android:id="@+id/tvPostViewElectricWindows"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Xhama elektrik" />
+
+                <TextView
+                    android:id="@+id/tvPostViewElectricSeads"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Ulëse elektrike" />
+
+                <TextView
+                    android:id="@+id/tvPostViewHeatedSeats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Ulëse me nxemje" />
+
+                <TextView
+                    android:id="@+id/tvPostViewSportSeats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Ulëse sportive" />
+
+                <TextView
+                    android:id="@+id/tvPostViewClimatisation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Klima: " />
+
+                <TextView
+                    android:id="@+id/tvPostViewMp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Mp3" />
+
+                <TextView
+                    android:id="@+id/tvPostViewAux"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="AUX" />
+
+                <TextView
+                    android:id="@+id/tvPostViewSteeringWheel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Pulla në timon" />
+
+                <TextView
+                    android:id="@+id/tvPostViewNav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Sistem Navigacioni" />
+
+                <TextView
+                    android:id="@+id/tvPostViewShiber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Shiber" />
+
+                <TextView
+                    android:id="@+id/tvPostViewPanorame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Panoramë" />
+
+                <TextView
+                    android:id="@+id/tvPostViewRoofRack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Bagazh në çati" />
+
+                <TextView
+                    android:id="@+id/tvPostViewCentral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Mbyllje qendrore" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/underline_profile"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="Exterieri"
+                    android:textColor="@color/prapavija"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostViewElectricMirrors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Pasqyre elektrike" />
+
+                <TextView
+                    android:id="@+id/tvPostViewSportAmortisation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Amortizim Sportiv" />
+
+                <TextView
+                    android:id="@+id/tvPostViewSportPacket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Sport Paketë" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/underline_profile"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:text="Siguria dhe Ambienti"
+                    android:textColor="@color/prapavija"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPostViewAbs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="ABS" />
+
+                <TextView
+                    android:id="@+id/tvPostViewAirbag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Airbag:" />
+
+                <TextView
+                    android:id="@+id/tvPostViewFour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="4x4" />
+
+                <TextView
+                    android:id="@+id/tvPostViewEsp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="ESP" />
+
+                <TextView
+                    android:id="@+id/tvPostViewAdaptingLights"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Drita Adaptuese" />
+
+
+                <TextView
+                    android:id="@+id/tvPostViewLightSensor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Densor Dritash" />
+
+                <TextView
+                    android:id="@+id/tvPostViewFog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Drita të Mjegullës" />
+
+
+                <TextView
+                    android:id="@+id/tvPostViewXenon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Drita të përparme Xenon" />
+
+                <TextView
+                    android:id="@+id/tvPostViewBiXenon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Drita tQ përparme BiXenon" />
+
+
+                <TextView
+                    android:id="@+id/tvPostViewRainSensor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="AirbSensora shiu:" />
+
+                <TextView
+                    android:id="@+id/tvPostViewStartStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_check"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Sistem Start-Stop" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/underlined_recycler_search"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/linearFeatures">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/underlined"
+                    android:text="Përshkrimi"
+                    android:textColor="@color/prapavija" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="Pershkrimi qe e ka bere insertuesi gjate insertimit te shpalljes ne databaze" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearSeller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/underlined_recycler_search"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/linearDescription">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/underlined"
+                    android:text="Shitësi"
+                    android:textColor="@color/prapavija" />
+
+                <TextView
+                    android:id="@+id/tvSellerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Autosalloni / Emri"
+                    android:textColor="@color/prapavija"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSellerTel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tel"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSellerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@android:color/darker_gray"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSellerAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Adresa e plote" />
+
+                <com.google.android.gms.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/postMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="#00000000"
+                    android:clickable="false"
+                    map:uiCompass="true" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/tvReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/teksti"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearSeller">
+
+                <Button
+                    android:id="@+id/btnPostViewReport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_report_post"
+                    android:text="Raporto Shpalljen"
+                    android:textColor="@color/colorAccent" />
+
+
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

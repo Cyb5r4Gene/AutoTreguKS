@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/sort_viti"
+        android:icon="@mipmap/edit"
+        android:title="Rendit sipas vitit"/>
+    <item
+        android:id="@+id/sort_cmimi"
+        android:icon="@mipmap/edit"
+        android:title="Rendit sipas cmimit"/>
+    <item
+        android:id="@+id/sort_km"
+        android:icon="@mipmap/edit"
+        android:title="Rendit sipas KM"/>
+    <item
+        android:id="@+id/sort_power"
+        android:icon="@mipmap/edit"
+        android:title="Rendit sipas fuqise"/>
+</menu>
