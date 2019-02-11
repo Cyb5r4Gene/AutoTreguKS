@@ -32,8 +32,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import Fragmentet.KrijoLlogariFragment;
-import Fragmentet.NdryshoProfilinFragment;
+import Fragments.CreateAccountFragment;
+import Fragments.UpdateProfileFragment;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -95,8 +95,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (lokacioniClick == null && lokacioniIm == null) {
                     Snackbar.make(v, "Ju lutem përzgjedhni lokacionin tuaj!", Snackbar.LENGTH_LONG).show();
                 } else {
-                    KrijoLlogariFragment.adresaLatLng = ruajLatLng;
-                    NdryshoProfilinFragment.updateLatLng = ruajLatLng;
+                    CreateAccountFragment.adresaLatLng = ruajLatLng;
+                    UpdateProfileFragment.updateLatLng = ruajLatLng;
                     finish();
                 }
             }

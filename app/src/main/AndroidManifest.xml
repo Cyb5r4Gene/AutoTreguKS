@@ -8,19 +8,17 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/app_logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/app_logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HyrjaActivity"
+            android:name=".StartActivity"
             android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".KryefaqjaActivity"
+            android:name=".NonUserActivity"
             android:label="@string/title_activity_kryefaqja"
             android:theme="@style/AppTheme" />
         <activity
@@ -53,7 +51,13 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".PostActivity"></activity>
+        <activity android:name=".PostActivity" />
+        <activity android:name=".SearchResultActivity" />
+        <activity
+            android:name=".CarDealersMap"
+            android:label="@string/title_activity_car_dealers_map" />
+        <activity android:name=".PostViewActivity" />
+        <activity android:name=".CarDealerActivity"></activity>
     </application>
 
 </manifest>

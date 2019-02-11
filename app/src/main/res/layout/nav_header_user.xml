@@ -20,7 +20,7 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
-        android:src="@mipmap/profile_image"
+        android:src="@drawable/ic_default_profile"
         app:layout_constraintBottom_toTopOf="@+id/tvEmriMbiemri"
         app:layout_constraintStart_toStartOf="@+id/tvEmriMbiemri" />
 
@@ -74,6 +74,7 @@
             android:src="@mipmap/hiri" />
 
         <TextView
+            android:id="@+id/tvPostsNr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

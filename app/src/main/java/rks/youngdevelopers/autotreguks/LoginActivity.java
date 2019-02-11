@@ -1,25 +1,16 @@
 package rks.youngdevelopers.autotreguks;
 
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
-
-import Fragmentet.KrijoLlogariFragment;
-import Fragmentet.LoginFragment;
-
-import static android.support.v4.provider.FontsContractCompat.FontRequestCallback.RESULT_OK;
+import Adapters.SectionsPageAdapter;
+import Fragments.CreateAccountFragment;
+import Fragments.LoginFragment;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,7 +19,6 @@ public class LoginActivity extends AppCompatActivity {
     TabLayout tabs;
     public static ImageView imgBack;
 
-    int PLACE_PICKER_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     {
         SectionsPageAdapter adapteri = new SectionsPageAdapter(getSupportFragmentManager());
         adapteri.addFragment(new LoginFragment(), "Kyçu");
-        adapteri.addFragment(new KrijoLlogariFragment(), "Krijo Llogari");
+        adapteri.addFragment(new CreateAccountFragment(), "Krijo Llogari");
         viewPager.setAdapter(adapteri);
     }
 }

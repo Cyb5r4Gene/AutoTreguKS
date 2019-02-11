@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@android:color/white"
-        android:text="Anulo"
+        android:text="Mbyll"
         android:textColor="@color/colorAccent"
         android:layout_marginTop="-50dp"
         android:layout_gravity="bottom"

@@ -7,51 +7,63 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_kryefaqja_user"
-            android:icon="@mipmap/kryefaqja"
-            android:title="Kryefaqja" />
+            android:icon="@drawable/ic_home"
+            android:title="@string/main_page" />
         <item
             android:id="@+id/nav_kerko_user"
-            android:icon="@mipmap/search"
-            android:title="Kërko" />
+            android:icon="@drawable/ic_search"
+            android:title="@string/search" />
         <item
             android:id="@+id/nav_saved_user"
-            android:icon="@mipmap/saved"
-            android:title="Postimet e ruajtura" />
+            android:icon="@drawable/ic_parking"
+            android:title="@string/saved_posts" />
         <item
-            android:id="@+id/nav_post"
-            android:icon="@mipmap/posto"
-            android:title="@string/posto" />
-        <item
-            android:id="@+id/nav_postimet"
-            android:icon="@mipmap/posts"
-            android:title="@string/postimet_e_mia" />
+            android:id="@+id/nav_car_dealers"
+            android:icon="@drawable/ic_car_dealer"
+            android:title="@string/car_dealers" />
+
+        <item android:title="@string/account">
+            <menu>
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/ic_my_profile"
+                    android:title="@string/profile" />
+                <item
+                    android:id="@+id/nav_add_post"
+                    android:icon="@drawable/ic_add"
+                    android:title="@string/posto" />
+                <item
+                    android:id="@+id/nav_my_posts"
+                    android:icon="@drawable/ic_my_posts"
+                    android:title="@string/postimet_e_mia" />
+            </menu>
+        </item>
     </group>
 
-    <item android:title="Aplikacioni">
+    <item android:title="@string/application">
         <menu>
-            <item
-                android:id="@+id/nav_settings_user"
-                android:icon="@mipmap/settings"
-                android:title="@string/preferencat" />
-
+            <!--<item-->
+                <!--android:id="@+id/nav_settings_user"-->
+                <!--android:icon="@drawable/ic_settings"-->
+                <!--android:title="@string/preferencat" />-->
             <item
                 android:id="@+id/nav_help_user"
-                android:icon="@mipmap/help"
+                android:icon="@drawable/ic_help"
                 android:title="@string/ndihma" />
-
             <item
-                android:id="@+id/nav_gabime_user"
-                android:icon="@mipmap/report"
+                android:id="@+id/nav_report_user"
+                android:icon="@drawable/ic_report"
                 android:title="@string/raporto" />
         </menu>
     </item>
-    <item
-        android:id="@+id/nav_profili"
-        android:title="@null" />
+
+    <item android:title="@null" />
+
     <item
         android:id="@+id/nav_logout"
         android:title="@null"
         app:showAsAction="collapseActionView" />
+
     <item android:title="@null" />
 
 </menu>

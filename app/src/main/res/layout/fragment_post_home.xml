@@ -138,7 +138,6 @@
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:text="Vazhdo me fotografitë"
-        android:textStyle="bold"
         android:textColor="@color/teksti"
         app:layout_constraintBottom_toBottomOf="parent" />
 

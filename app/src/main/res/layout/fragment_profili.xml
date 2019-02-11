@@ -440,11 +440,34 @@
                         android:maxLines="3"/>
                 </LinearLayout>
 
-
-
-
+                <com.google.android.gms.maps.MapView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profileMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="#00000000"
+                    android:clickable="true"
+                    map:uiCompass="true" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvPosts"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:gravity="center"
+                android:text="POSTIMET"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/layoutAdresa"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvPosts">
+
+            </android.support.v7.widget.RecyclerView>
 
 
 

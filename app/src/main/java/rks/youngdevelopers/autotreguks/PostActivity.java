@@ -5,15 +5,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Fragmentet.PostHomeFragment;
-import models.Airbag;
-import models.Karakteristikat;
-import models.Post;
+import Fragments.PostHomeFragment;
+import Models.Airbag;
+import Models.Features;
+import Models.Post;
 
 public class PostActivity extends AppCompatActivity {
 
@@ -21,22 +24,34 @@ public class PostActivity extends AppCompatActivity {
 
     // VARIABLAT E NEVOJSHME PER INSERTIM NE DATABAZE (REMOTE)
     public static Post post = new Post();
-    public static Karakteristikat karakteristikat = new Karakteristikat();
+    public static Features features = new Features();
     public static Airbag airbag = new Airbag();
     public static List<String> postFotos = new ArrayList<>();
 
 
     Fragment fragment;
     public static int i=0;
-
+    public static TextView tvTitle;
+    ImageView imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
+
         toolbar = (Toolbar) findViewById(R.id.toolbar_post);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        tvTitle = (TextView)findViewById(R.id.tvPostTitle);
+        imgBack = (ImageView)findViewById(R.id.postBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         fragment = new PostHomeFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -57,12 +72,16 @@ public class PostActivity extends AppCompatActivity {
             } else {
                 i=0;
                 post = new Post();
-                karakteristikat = new Karakteristikat();
+                features = new Features();
                 PostHomeFragment.clicked = false;
                 finish();
             }
         }
 
+    }
+
+    public static void setTitle(String titulli){
+        tvTitle.setText(titulli);
     }
 
 

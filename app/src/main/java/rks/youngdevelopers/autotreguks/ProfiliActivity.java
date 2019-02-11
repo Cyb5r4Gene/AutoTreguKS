@@ -1,19 +1,12 @@
 package rks.youngdevelopers.autotreguks;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import java.io.IOException;
-
-import Fragmentet.NdryshoProfilinFragment;
-import Fragmentet.ProfiliFragment;
+import Fragments.ProfileFragment;
 
 public class ProfiliActivity extends AppCompatActivity {
 
@@ -27,7 +20,7 @@ public class ProfiliActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar_profili);
         setSupportActionBar(toolbar);
 
-        Fragment fragment = new ProfiliFragment();
+        Fragment fragment = new ProfileFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.addToBackStack(null);

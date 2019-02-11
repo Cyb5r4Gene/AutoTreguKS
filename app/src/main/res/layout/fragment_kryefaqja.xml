@@ -59,8 +59,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:src="@mipmap/family"
-                    android:adjustViewBounds="true"/>
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/family" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,70 +69,82 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/underline_propozimet"
                     android:text="Vetura Familjare"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/prapavija"
                     android:textStyle="bold" />
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/layoutSport"
-                android:layout_width="160dp"
-                android:layout_height="110dp"
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/layoutFamiljar"
-                android:layout_marginLeft="5dp">
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="100">
 
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/r35"
-                    android:adjustViewBounds="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:id="@+id/layoutSport"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="-5dp"
-                    android:background="@drawable/underline_propozimet"
-                    android:text="Vetura Sportive"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:layout_weight="53">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/r35" />
 
-            <RelativeLayout
-                android:id="@+id/layoutKamionete"
-                android:layout_width="fill_parent"
-                android:layout_height="110dp"
-                android:layout_below="@id/layoutFamiljar"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_toRightOf="@id/layoutSport">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="-5dp"
+                        android:background="@drawable/underline_propozimet"
+                        android:text="Vetura Sportive"
+                        android:textColor="@color/prapavija"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
-                <ImageView
+                <RelativeLayout
+                    android:id="@+id/layoutKamionete"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/xc"
-                    android:adjustViewBounds="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginTop="-5dp"
-                    android:background="@drawable/underline_propozimet"
-                    android:text="Kamionetë"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="48">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/xc" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="-5dp"
+                        android:background="@drawable/underline_propozimet"
+                        android:text="Kamionetë"
+                        android:textColor="@color/prapavija"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
 
             <RelativeLayout
                 android:id="@+id/layoutSuv"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/layoutSport"
+                android:layout_below="@id/linear2"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp">
@@ -140,77 +152,84 @@
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/suv"
-                    android:adjustViewBounds="true"/>
+                    android:src="@mipmap/suv" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="-5dp"
                     android:background="@drawable/underline_propozimet"
                     android:text="SUV"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/prapavija"
                     android:textStyle="bold" />
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/layoutTransporterN"
-                android:layout_width="170dp"
-                android:layout_height="120dp"
+            <LinearLayout
+                android:id="@+id/linear4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/layoutSuv"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp">
-
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/viano1"
-                    android:adjustViewBounds="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="-5dp"
-                    android:background="@drawable/underline_propozimet"
-                    android:text="Transporter udhëtarësh"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layoutTransporterM"
-                android:layout_width="fill_parent"
-                android:layout_height="120dp"
-                android:layout_below="@id/layoutSuv"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/layoutTransporterN">
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="100">
 
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/transporter"
-                    android:adjustViewBounds="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:id="@+id/layoutTransporterN"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="-5dp"
-                    android:background="@drawable/underline_propozimet"
-                    android:text="Transporter malli"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:layout_weight="51">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/viano1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="-5dp"
+                        android:background="@drawable/underline_propozimet"
+                        android:text="Transporter udhëtarësh"
+                        android:textColor="@color/prapavija"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutTransporterM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="51">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/transporter" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="-5dp"
+                        android:background="@drawable/underline_propozimet"
+                        android:text="Transporter malli"
+                        android:textColor="@color/prapavija"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </RelativeLayout>
 

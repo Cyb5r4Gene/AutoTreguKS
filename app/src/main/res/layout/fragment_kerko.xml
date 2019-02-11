@@ -1,21 +1,342 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@color/text_hint">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:paddingBottom="60dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="10dp">
 
-        </LinearLayout>
-    </ScrollView>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/test">
 
 
-</LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoGjendja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvGjendja"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gjendja"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoGjendja"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoMarkaModeli"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoGjendja">
+
+                    <TextView
+                        android:id="@+id/tvMarkaModeliID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Marka, Modeli"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvMarkaModeli"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoCmimi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoMarkaModeli">
+
+                    <TextView
+                        android:id="@+id/tvKerkoCmimiID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Çmimi &#8364;"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoCmimi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoTarga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoCmimi">
+
+                    <TextView
+                        android:id="@+id/tvKerkoTargaID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Targat"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoTarga"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoRegjistrimiPare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoTarga">
+
+                    <TextView
+                        android:id="@+id/tvKerkoRegjistrimiPareID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Regjistrimi i parë"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoRegjistrimiPare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoKm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoRegjistrimiPare">
+
+                    <TextView
+                        android:id="@+id/tvKerkoKmID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Të kaluara (km)"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoKm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoFuqia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoKm">
+
+                    <TextView
+                        android:id="@+id/tvKerkoFuqiaID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fuqia"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoFuqia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoKarburanti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoFuqia">
+
+                    <TextView
+                        android:id="@+id/tvKerkoKarburantiID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Karburanti"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoKarburanti"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/kerkoQyteti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoKarburanti">
+
+                    <TextView
+                        android:id="@+id/tvQytetiID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Qyteti"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <Spinner
+                        android:id="@+id/spinnerKerkoQyteti"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </Spinner>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/kerkoHollesishem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/underlined"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/kerkoQyteti">
+
+                    <TextView
+                        android:id="@+id/tvKerkoDetaje"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kërkim i hollësishëm"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvKerkoHollesishem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opsione të tjera kërkimi" />
+
+                </LinearLayout>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnShfaqKerkimet"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_button"
+        android:text="KËRKO"
+        android:textColor="@color/teksti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/colorPrimary"/>
+
+
+</android.support.constraint.ConstraintLayout>

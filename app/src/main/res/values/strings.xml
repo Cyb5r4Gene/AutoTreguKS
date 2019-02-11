@@ -88,8 +88,17 @@
     </string-array>
 
     <string-array name="dyer">
+        <item>Pa përcaktuar</item>
         <item>2/3</item>
         <item>4/5</item>
+        <item>6/7</item>
+    </string-array>
+
+    <string-array name="door_search">
+        <item>Çfardo</item>
+        <item>2/3</item>
+        <item>4/5</item>
+        <item>6/7</item>
     </string-array>
 
     <string-array name="opsione">
@@ -106,8 +115,9 @@
     </string-array>
 
     <string-array name="transmisioni">
+        <item>Pa përcaktuar</item>
         <item>Manual</item>
-        <item>Gjysem Automatik</item>
+        <item>Gjysëm Automatik</item>
         <item>Automatik</item>
     </string-array>
 
@@ -119,6 +129,7 @@
         <item>4+1</item>
         <item>5+1</item>
         <item>6+1</item>
+        <item>Më shumë</item>
     </string-array>
 
     <string-array name="pronar">
@@ -138,13 +149,15 @@
     <string-array name="ngjyra">
         <item>Pa përcaktuar</item>
         <item>E bardhë</item>
-        <item>E kuqe</item>
-        <item>E kaltër</item>
-        <item>E verdhë</item>
-        <item>E zezë</item>
         <item>E gjelbër</item>
         <item>E hirtë</item>
+        <item>E kaltër</item>
+        <item>E kuqe</item>
+        <item>E portokalltë</item>
+        <item>E verdhë</item>
+        <item>E zezë</item>
         <item>Vjollcë</item>
+        <item>Tjetër</item>
     </string-array>
 
     <string-array name="enterieri">
@@ -174,6 +187,40 @@
         <item>Klimë automatike 4 zonale</item>
     </string-array>
 
+    <string-array name="security">
+        <item>ABS</item>
+        <item>4x4</item>
+        <item>ESP</item>
+        <item>Drita adaptuese</item>
+        <item>Sensor Dritash</item>
+        <item>Drita të përparme XENON</item>
+        <item>Drita të përparme BI-XENON</item>
+        <item>Sensora Shiu</item>
+        <item>Sistem Start-Stop</item>
+    </string-array>
+
+    <string-array name="owners">
+        <item>Pa përcaktuar</item>
+        <item>Deri 1</item>
+        <item>Deri 2</item>
+        <item>Deri 3</item>
+        <item>Deri 4</item>
+        <item>Deri 5</item>
+        <item>Më shumë se 5</item>
+    </string-array>
+
+    <string-array name="parking">
+        <item>Sensora Parkimi</item>
+        <item>Kamerë vëzhgimi</item>
+        <item>Sistem Autonom Parkimi</item>
+    </string-array>
+
+    <string-array name="seller">
+        <item>Privat dhe Autosallon</item>
+        <item>Privat</item>
+        <item>Autosallon</item>
+    </string-array>
+
     <string-array name="airbag">
         <item>Airbag të shoferit</item>
         <item>Airbag anësor</item>
@@ -181,12 +228,154 @@
         <item>Airbag të tjerë</item>
     </string-array>
 
+    <string-array name="kerkoCmimet">
+        <item>0</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+        <item>4500</item>
+        <item>5000</item>
+        <item>6000</item>
+        <item>7000</item>
+        <item>8000</item>
+        <item>9000</item>
+        <item>10000</item>
+        <item>12500</item>
+        <item>15000</item>
+        <item>17500</item>
+        <item>20000</item>
+        <item>25000</item>
+        <item>30000</item>
+        <item>35000</item>
+        <item>40000</item>
+        <item>45000</item>
+        <item>50000</item>
+        <item>60000</item>]
+        <item>70000</item>
+        <item>80000</item>
+        <item>90000</item>
+        <item>10000</item>
+        <item>Çfardo</item>
+    </string-array>
+
+    <string-array name="kerkoKm">
+        <item>0</item>
+        <item>10000</item>
+        <item>20000</item>
+        <item>30000</item>
+        <item>40000</item>
+        <item>50000</item>
+        <item>60000</item>
+        <item>70000</item>
+        <item>80000</item>
+        <item>90000</item>
+        <item>100000</item>
+        <item>110000</item>
+        <item>120000</item>
+        <item>130000</item>
+        <item>140000</item>
+        <item>150000</item>
+        <item>160000</item>
+        <item>170000</item>
+        <item>180000</item>
+        <item>190000</item>
+        <item>200000</item>
+        <item>Çfardo</item>
+    </string-array>
+
+    <string-array name="kerkoFuqia">
+        <item>0 KW</item>
+        <item>25 KW</item>
+        <item>35 KW</item>
+        <item>45 KW</item>
+        <item>55 KW</item>
+        <item>65 KW</item>
+        <item>75 KW</item>
+        <item>85 KW</item>
+        <item>95 KW</item>
+        <item>110 KW</item>
+        <item>145 KW</item>
+        <item>185 KW</item>
+        <item>220 KW</item>
+        <item>260 KW</item>
+        <item>295 KW</item>
+        <item>335 KW</item>
+        <item>Çfardo</item>
+    </string-array>
+
+    <string-array name="gjendja">
+        <item>I ri dhe i Vjetër</item>
+        <item>I ri</item>
+        <item>I vjetër</item>
+    </string-array>
+
+    <string-array name="karburanti">
+        <item>Dizel</item>
+        <item>Benzin</item>
+        <item>Benzin/Plin</item>
+        <item>Elektrik</item>
+        <item>Hibrid</item>
+    </string-array>
+
+    <string-array name="karroceria">
+        <item>Sedan</item>
+        <item>Karavan</item>
+        <item>Kabriolet</item>
+        <item>Off-road</item>
+        <item>Veturë e vogel</item>
+    </string-array>
+
+    <string-array name="interior_features">
+        <item>Bluetooth</item>
+        <item>On-board Kompjuter</item>
+        <item>CD Player</item>
+        <item>Xhama elektrik</item>
+        <item>Ulëse me lëvizje elektrike</item>
+        <item>Ulëse me nxemje</item>
+        <item>Ulëse sportive</item>
+        <item>MP3 Konektor</item>
+        <item>Aux</item>
+        <item>Pulla në timon</item>
+        <item>Sistem Navigacioni</item>
+        <item>Shiber</item>
+        <item>Panoramë</item>
+        <item>Bagazh në çati</item>
+        <item>Mbyllje qendrore</item>
+    </string-array>
+
+    <string-array name="report_types">
+        <item>Lloji i raportit</item>
+        <item>Raporto Perdorues</item>
+        <item>Raporto dështim në App</item>
+    </string-array>
+
+
     <string name="title_activity_login">LoginActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="shkronjat">abcçdeëfghijkmnopqrstuvxyzABCÇDEËFGHIJKLMNOPQRSTUVXYZ</string>
     <string name="title_activity_user">UserActivity</string>
     <string name="action_edit">Ndrysho</string>
     <string name="title_activity_maps">Map</string>
-
-
+    <string name="title_activity_car_dealers_map">Map</string>
+    <string name="account">Llogaria</string>
+    <string name="car_dealers">Autosallonet</string>
+    <string name="saved_posts">Postimet e ruajtura</string>
+    <string name="search">Kërko</string>
+    <string name="main_page">Kryefaqja</string>
+    <string name="profile">Profili</string>
+    <string name="application">Aplikacioni</string>
+    <string name="make_model_variant">Marka Modeli Varianti</string>
+    <string name="not_accidented">I pa aksidentuar? -</string>
+    <string name="first_registration">Regjistrimi i parë -</string>
+    <string name="km">Km</string>
+    <string name="no_text">-</string>
+    <string name="kw">KW</string>
+    <string name="name_surname">Emri Mbiemri</string>
+    <string name="address">Adresa</string>
+    <string name="bluetooth">Bluetooth</string>
 </resources>

@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/text_hint">
 
-    <!--<android.support.v7.widget.RecyclerView-->
-    <!--android:id="@+id/recyclerPostKryesore"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:background="@drawable/test"-->
-    <!--android:layout_margin="5dp">-->
-    <!--</android.support.v7.widget.RecyclerView>-->
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -7,17 +7,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/profil_login"
+            android:focusable="true"
             android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:src="@mipmap/profil_login" />
 
         <EditText
             android:id="@+id/etLoginEmail"
@@ -68,35 +68,36 @@
                 android:layout_toRightOf="@id/etLoginPassword"
                 android:background="@mipmap/mosshiko" />
         </RelativeLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/checkRuaj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Ruaj përdoruesin"
-        android:textColor="@color/teksti"
-        android:layout_marginLeft="20dp"
-        android:checked="true"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/login_border"
-        android:fontFamily="serif"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="Login"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"/>
-</RelativeLayout>
+            <CheckBox
+                android:id="@+id/checkRuaj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:checked="true"
+                android:text="Ruaj përdoruesin"
+                android:textColor="@color/teksti" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/login_border"
+                android:fontFamily="serif"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Login"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
 
         <TextView
