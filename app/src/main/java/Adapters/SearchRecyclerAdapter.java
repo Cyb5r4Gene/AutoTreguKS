@@ -1,6 +1,9 @@
 package Adapters;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -9,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -18,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -127,7 +132,7 @@ public class SearchRecyclerAdapter extends RecyclerView.Adapter<SearchRecyclerAd
         });
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null && listItems.get(position).getPronariID().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-            holder.imgSave.setImageResource(R.drawable.ic_edit);
+            holder.imgSave.setImageResource(R.drawable.ic_clear);
         } else {
             SQLiteDatabase objDb = (new LocalDatabase(context)).getReadableDatabase();
             Cursor c = null;
@@ -164,12 +169,7 @@ public class SearchRecyclerAdapter extends RecyclerView.Adapter<SearchRecyclerAd
             @Override
             public void onClick(View v) {
                 if (FirebaseAuth.getInstance().getCurrentUser() != null && listItems.get(position).getPronariID().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                    /*
-                    *
-                    * hapet editimi i postimit
-                    *
-                    *
-                    * */
+
                     onPostListener.onPostClick(position, 2);
                 } else {
 

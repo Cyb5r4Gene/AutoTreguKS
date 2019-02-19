@@ -47,30 +47,27 @@ import rks.youngdevelopers.autotreguks.UserActivity;
 
 public class CreateAccountFragment extends Fragment {
 
-    // V A R I A B L A T
+    // V A R I A B L E S
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    String emri, mbiemri, datelindja, tel, emriAutosallonit, telAutosallonit, pershkrimiAutosallonit,
-            adresaRruga, adresaNr, adresaKodi, email, pass, pass2;
-    int qyteti;
-    String tipi = "1";
+    String name, surname, birthdate, tel, dealershipName, dealershipTel, dealershipDesc,
+            road, nr, postalCode, email, pass, pass2;
+    int city;
+    String type = "1";
 
+    // S T A T I C  V A R I A B L E S
+    public static LatLng addressLatLng = null;
 
-    // V A R I A B L A T   S T A T I K E
-    public static LatLng adresaLatLng = null;
-
-
-    // P A M J E T
-    EditText etKrijoEmri, etKrijoMbiemri, etKrijoTelefoni, etKrijoSalloni, etAutosalloniTel, etAutosalloniPershkrimi,
-            etKrijoRruga, etKrijoNr, etKrijoKodi, etKrijoEmail, etKrijoPass, etKrijoKonfirmoPass;
-    RadioButton radioPrivate, radioAutoSallon;
-    TextView tvDatelindja, tvAuto;
-    Spinner spinnerKrijoQyteti;
-    ImageView gabimQyteti, gabimHarta;
-    TextView tvSukses, tv2;
-    LinearLayout layoutAutoSallon, layoutTipi;
-    Button btnRuaj, btnAnulo, btnAdresa;
+    // V I E W S
+    EditText etCreateName, etCreateSurname, etCreateTel, etCreateCarDealership, etDealershipTel, etDealershipDesc,
+            etCreateRoad, etCreateNr, etCreateCode, etCreateEmail, etCreatePass, etCreateConfirmPass;
+    RadioButton radioPrivate, radioCarDealership;
+    TextView tvBirthDate, tvAuto;
+    Spinner spinnerCity;
+    ImageView errorCity, errorMap;
+    TextView tvSuccess, tv2;
+    LinearLayout layoutCarDealer, layoutType;
+    Button btnSave, btnCancel, btnAddress;
     private ProgressDialog progressDialog;
-
 
     // D A T A B A S E
     FirebaseAuth firebaseAuth;
@@ -86,9 +83,9 @@ public class CreateAccountFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_krijo_llogari, container, false);
 
 
-//        --------------------------------------INICIALIZIMI I PAMJEVE--------------------------------------
+//        --------------------------------------VIEW INITIALIZATION--------------------------------------
 
-        spinnerKrijoQyteti = (Spinner) view.findViewById(R.id.spinnerKrijoQyteti);
+        spinnerCity = (Spinner) view.findViewById(R.id.spinnerKrijoQyteti);
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter
                 .createFromResource(getActivity().getApplicationContext(), R.array.qytetet,
                         R.layout.spinner_style);
@@ -97,55 +94,53 @@ public class CreateAccountFragment extends Fragment {
         staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Apply the adapter to the spinner
-        spinnerKrijoQyteti.setAdapter(staticAdapter);
+        spinnerCity.setAdapter(staticAdapter);
 
-        etKrijoEmri = (EditText) view.findViewById(R.id.etKrijoEmri);
-        etKrijoMbiemri = (EditText) view.findViewById(R.id.etKrijoMbiemri);
-        etKrijoTelefoni = (EditText) view.findViewById(R.id.etKrijoNumri);
-        etKrijoSalloni = (EditText) view.findViewById(R.id.etKrijoAutosalloni);
-        etAutosalloniTel = (EditText) view.findViewById(R.id.etAutosalloniTel);
-        etAutosalloniPershkrimi = (EditText) view.findViewById(R.id.etPershkrimiAutosallonit);
-        etKrijoRruga = (EditText) view.findViewById(R.id.etKrijoRruga);
-        etKrijoNr = (EditText) view.findViewById(R.id.etKrijoNr);
-        etKrijoKodi = (EditText) view.findViewById(R.id.etKrijoKodiPostal);
+        etCreateName = (EditText) view.findViewById(R.id.etKrijoEmri);
+        etCreateSurname = (EditText) view.findViewById(R.id.etKrijoMbiemri);
+        etCreateTel = (EditText) view.findViewById(R.id.etKrijoNumri);
+        etCreateCarDealership = (EditText) view.findViewById(R.id.etKrijoAutosalloni);
+        etDealershipTel = (EditText) view.findViewById(R.id.etAutosalloniTel);
+        etDealershipDesc = (EditText) view.findViewById(R.id.etPershkrimiAutosallonit);
+        etCreateRoad = (EditText) view.findViewById(R.id.etKrijoRruga);
+        etCreateNr = (EditText) view.findViewById(R.id.etKrijoNr);
+        etCreateCode = (EditText) view.findViewById(R.id.etKrijoKodiPostal);
 
-        etKrijoEmail = (EditText) view.findViewById(R.id.etKrijoEmail);
-        etKrijoPass = (EditText) view.findViewById(R.id.etKrijoPassword);
-        etKrijoKonfirmoPass = (EditText) view.findViewById(R.id.etKrijoKonfirmPassword);
+        etCreateEmail = (EditText) view.findViewById(R.id.etKrijoEmail);
+        etCreatePass = (EditText) view.findViewById(R.id.etKrijoPassword);
+        etCreateConfirmPass = (EditText) view.findViewById(R.id.etKrijoKonfirmPassword);
 
         tvAuto = (TextView) view.findViewById(R.id.tvAdresaAutosallonit);
         radioPrivate = (RadioButton) view.findViewById(R.id.radioPrivate);
-        radioAutoSallon = (RadioButton) view.findViewById(R.id.radioAutoSallon);
-        layoutAutoSallon = (LinearLayout) view.findViewById(R.id.layoutAutoSallon);
-        layoutTipi = (LinearLayout) view.findViewById(R.id.layoutTipi);
-        btnAnulo = (Button) view.findViewById(R.id.btnAnulo);
-        btnRuaj = (Button) view.findViewById(R.id.btnKrijo);
-        btnAdresa = (Button) view.findViewById(R.id.btnQyteti);
-        tvDatelindja = (TextView) view.findViewById(R.id.tvKrijoDatelindja);
-        gabimQyteti = (ImageView) view.findViewById(R.id.gabimQyteti);
-        gabimHarta = (ImageView) view.findViewById(R.id.gabimHarta);
+        radioCarDealership = (RadioButton) view.findViewById(R.id.radioAutoSallon);
+        layoutCarDealer = (LinearLayout) view.findViewById(R.id.layoutAutoSallon);
+        layoutType = (LinearLayout) view.findViewById(R.id.layoutTipi);
+        btnCancel = (Button) view.findViewById(R.id.btnAnulo);
+        btnSave = (Button) view.findViewById(R.id.btnKrijo);
+        btnAddress = (Button) view.findViewById(R.id.btnQyteti);
+        tvBirthDate = (TextView) view.findViewById(R.id.tvKrijoDatelindja);
+        errorCity = (ImageView) view.findViewById(R.id.gabimQyteti);
+        errorMap = (ImageView) view.findViewById(R.id.gabimHarta);
 
-//      ------------------------MBARIMI I INICIALIZIMIT TE PAMJEVE----------------------------
-//      **************************************************************************************
+        /*---------------------------------------------------------------------------------------  */
 
-        datelindja = "";
+        birthdate = "";
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(getContext());
 
-        btnAdresa.setOnClickListener(new View.OnClickListener() {
+        btnAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //adresaID();
                 Intent objIntent = new Intent(getContext(), MapsActivity.class);
                 startActivity(objIntent);
             }
         });
 
-        tvDatelindja.setOnClickListener(new View.OnClickListener() {
+        /* THE FUNCTION TO SHOW THE BIRTHDATE DIALOG PICKER */
+        tvBirthDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // shfaqet dialogu i datelindjes
                 Calendar calendar = Calendar.getInstance();
                 int viti = calendar.get(Calendar.YEAR);
                 int muaji = calendar.get(Calendar.MONTH);
@@ -165,19 +160,18 @@ public class CreateAccountFragment extends Fragment {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                datelindja = String.valueOf(dayOfMonth) + " / " + String.valueOf(month + 1) + " / " + String.valueOf(year);
-                tvDatelindja.setText("Datëlindja:  " + datelindja);
-
+                birthdate = String.valueOf(dayOfMonth) + " / " + String.valueOf(month + 1) + " / " + String.valueOf(year);
+                tvBirthDate.setText("Datëlindja:  " + birthdate);
             }
         };
 
-        radioAutoSallon.setOnClickListener(new View.OnClickListener() {
+        radioCarDealership.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (radioAutoSallon.isChecked()) {
-                    layoutAutoSallon.setVisibility(View.VISIBLE);
+                if (radioCarDealership.isChecked()) {
+                    layoutCarDealer.setVisibility(View.VISIBLE);
                     tvAuto.setVisibility(View.VISIBLE);
-                    tipi = "2";
+                    type = "2";
                 }
             }
         });
@@ -186,21 +180,22 @@ public class CreateAccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (radioPrivate.isChecked()) {
-                    layoutAutoSallon.setVisibility(View.GONE);
+                    layoutCarDealer.setVisibility(View.GONE);
                     tvAuto.setVisibility(View.GONE);
-                    tipi = "1";
+                    type = "1";
                 }
             }
         });
 
-        gabimQyteti.setOnClickListener(new View.OnClickListener() {
+        /*  */
+        errorCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Ju lutem zgjidhni qytetin", Toast.LENGTH_SHORT).show();
             }
         });
 
-        gabimHarta.setOnClickListener(new View.OnClickListener() {
+        errorMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Ju lutem vendosni lokacionin ne harte", Toast.LENGTH_SHORT).show();
@@ -208,126 +203,126 @@ public class CreateAccountFragment extends Fragment {
         });
 
 
-        btnAnulo.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etKrijoEmri.setText("");
-                etKrijoMbiemri.setText("");
-                etKrijoTelefoni.setText("");
-                tvDatelindja.setText("Datëlindja");
-                spinnerKrijoQyteti.setSelection(0);
-                etKrijoEmail.setText("");
-                etKrijoPass.setText("");
-                etKrijoKonfirmoPass.setText("");
+                etCreateName.setText("");
+                etCreateSurname.setText("");
+                etCreateTel.setText("");
+                tvBirthDate.setText("Datëlindja");
+                spinnerCity.setSelection(0);
+                etCreateEmail.setText("");
+                etCreatePass.setText("");
+                etCreateConfirmPass.setText("");
                 radioPrivate.callOnClick();
-                etKrijoSalloni.setText("");
-                etAutosalloniTel.setText("");
-                etAutosalloniPershkrimi.setText("");
-                etKrijoRruga.setText("");
-                etKrijoNr.setText("");
-                etKrijoKodi.setText("");
+                etCreateCarDealership.setText("");
+                etDealershipTel.setText("");
+                etDealershipDesc.setText("");
+                etCreateRoad.setText("");
+                etCreateNr.setText("");
+                etCreateCode.setText("");
             }
         });
 
-        btnRuaj.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int gabime = 0;
 
-                emri = etKrijoEmri.getText().toString().trim();
-                mbiemri = etKrijoMbiemri.getText().toString().trim();
-                email = etKrijoEmail.getText().toString();
-                pass = etKrijoPass.getText().toString();
-                pass2 = etKrijoKonfirmoPass.getText().toString().trim();
-                tel = etKrijoTelefoni.getText().toString().trim();
-                emriAutosallonit = etKrijoSalloni.getText().toString().trim();
-                telAutosallonit = etAutosalloniTel.getText().toString().trim();
-                pershkrimiAutosallonit = etAutosalloniPershkrimi.getText().toString().trim();
-                adresaRruga = etKrijoRruga.getText().toString().trim();
-                adresaNr = etKrijoNr.getText().toString().trim();
-                adresaKodi = etKrijoKodi.getText().toString().trim();
-                qyteti = spinnerKrijoQyteti.getSelectedItemPosition();
+                name = etCreateName.getText().toString().trim();
+                surname = etCreateSurname.getText().toString().trim();
+                email = etCreateEmail.getText().toString();
+                pass = etCreatePass.getText().toString();
+                pass2 = etCreateConfirmPass.getText().toString().trim();
+                tel = etCreateTel.getText().toString().trim();
+                dealershipName = etCreateCarDealership.getText().toString().trim();
+                dealershipTel = etDealershipTel.getText().toString().trim();
+                dealershipDesc = etDealershipDesc.getText().toString().trim();
+                road = etCreateRoad.getText().toString().trim();
+                nr = etCreateNr.getText().toString().trim();
+                postalCode = etCreateCode.getText().toString().trim();
+                city = spinnerCity.getSelectedItemPosition();
 
-                if (emri.isEmpty() || emri.length() < 3) {
+                if (name.isEmpty() || name.length() < 3) {
                     gabime++;
-                    etKrijoEmri.setError("Emri duhet të jetë më i gjatë se 2 karaktere");
-                    etKrijoEmri.requestFocus();
+                    etCreateName.setError("Emri duhet të jetë më i gjatë se 2 karaktere");
+                    etCreateName.requestFocus();
                 }
 
-                if (mbiemri.isEmpty() || mbiemri.length() < 3) {
+                if (surname.isEmpty() || surname.length() < 3) {
                     gabime++;
-                    etKrijoMbiemri.setError("Mbiemri duhet të jetë më i gjatë se 2 karaktere");
-                    etKrijoMbiemri.requestFocus();
+                    etCreateSurname.setError("Mbiemri duhet të jetë më i gjatë se 2 karaktere");
+                    etCreateSurname.requestFocus();
                 }
 
-                if (tvDatelindja.getText().toString().trim().equals("Datëlindja")) {
+                if (tvBirthDate.getText().toString().trim().equals("Datëlindja")) {
                     gabime++;
-                    tvDatelindja.setError("Ju lutem caktoni datëlindjen");
-                    tvDatelindja.requestFocus();
+                    tvBirthDate.setError("Ju lutem caktoni datëlindjen");
+                    tvBirthDate.requestFocus();
                 }
 
-                if (radioAutoSallon.isChecked()) {
-                    if (emriAutosallonit.isEmpty() || emriAutosallonit.length() < 3) {
+                if (radioCarDealership.isChecked()) {
+                    if (dealershipName.isEmpty() || dealershipName.length() < 3) {
                         gabime++;
-                        etKrijoSalloni.setError("Emri i Autosallonit duhet të jetë më i gjatë se 2 karaktere");
-                        etKrijoEmri.requestFocus();
+                        etCreateCarDealership.setError("Emri i Autosallonit duhet të jetë më i gjatë se 2 karaktere");
+                        etCreateName.requestFocus();
                     }
                 }
 
-                if (adresaRruga.isEmpty() || adresaRruga.length() < 3) {
+                if (road.isEmpty() || road.length() < 3) {
                     gabime++;
-                    etKrijoRruga.setError("Shënoni emrin e rrugës");
-                    etKrijoRruga.requestFocus();
+                    etCreateRoad.setError("Shënoni emrin e rrugës");
+                    etCreateRoad.requestFocus();
                 }
 
-                if (adresaNr.isEmpty()) {
+                if (nr.isEmpty()) {
                     gabime++;
-                    etKrijoNr.setError("Ju lutem shënoni numrin e adresës");
-                    etKrijoNr.requestFocus();
+                    etCreateNr.setError("Ju lutem shënoni numrin e adresës");
+                    etCreateNr.requestFocus();
                 }
 
-                if (adresaKodi.isEmpty() || adresaKodi.length() < 4) {
+                if (postalCode.isEmpty() || postalCode.length() < 4) {
                     gabime++;
-                    etKrijoKodi.setError("Ju lutem shkruani kodin postar tuaj");
-                    etKrijoKodi.requestFocus();
+                    etCreateCode.setError("Ju lutem shkruani kodin postar tuaj");
+                    etCreateCode.requestFocus();
                 }
 
-                if (qyteti == 0) {
+                if (city == 0) {
                     gabime++;
-                    gabimQyteti.setVisibility(View.VISIBLE);
+                    errorCity.setVisibility(View.VISIBLE);
                 } else {
-                    gabimQyteti.setVisibility(View.GONE);
+                    errorCity.setVisibility(View.GONE);
                 }
 
                 if (tel.isEmpty() || tel.length() != 9) {
                     gabime++;
-                    etKrijoTelefoni.setError("Shkruani numër valid të telefonit");
-                    etKrijoTelefoni.requestFocus();
+                    etCreateTel.setError("Shkruani numër valid të telefonit");
+                    etCreateTel.requestFocus();
                 }
 
                 if (email.isEmpty() || email.length() < 10) {
                     gabime++;
-                    etKrijoEmail.setError("Ju lutemi shkruani email valide");
-                    etKrijoEmail.requestFocus();
+                    etCreateEmail.setError("Ju lutemi shkruani email valide");
+                    etCreateEmail.requestFocus();
                 }
 
                 if (pass.length() < 6 )
                 {
-                    etKrijoPass.setError("Fjalekalimi duhet të jetë më i gjatë se 6 karaktere");
-                    etKrijoPass.requestFocus();
+                    etCreatePass.setError("Fjalekalimi duhet të jetë më i gjatë se 6 karaktere");
+                    etCreatePass.requestFocus();
                 }
                 if(!pass.equals(pass2)) {
                     gabime++;
-                    etKrijoPass.setError("Fjalekalimet nuk përputhen");
-                    etKrijoPass.requestFocus();
-                    etKrijoKonfirmoPass.setError("Fjalekalimet nuk përputhen");
+                    etCreatePass.setError("Fjalekalimet nuk përputhen");
+                    etCreatePass.requestFocus();
+                    etCreateConfirmPass.setError("Fjalekalimet nuk përputhen");
                 }
 
-                if (adresaLatLng == null) {
+                if (addressLatLng == null) {
                     gabime++;
-                    gabimHarta.setVisibility(View.VISIBLE);
+                    errorMap.setVisibility(View.VISIBLE);
                 } else {
-                    gabimHarta.setVisibility(View.GONE);
+                    errorMap.setVisibility(View.GONE);
                 }
 
                 if (gabime == 0) {
@@ -340,22 +335,19 @@ public class CreateAccountFragment extends Fragment {
                             if (task.isSuccessful()) {
 
                                 String lat, lng;
-                                if (adresaLatLng == null) {
-                                    lat = "-";
-                                    lng = "-";
-                                } else {
-                                    lat = String.valueOf(adresaLatLng.latitude);
-                                    lng = String.valueOf(adresaLatLng.longitude);
-                                }
 
-                                String adresaID = RemoteDatabase.addressRegistration(adresaRruga, adresaNr, adresaKodi, String.valueOf(qyteti), lat, lng);
+                                lat = String.valueOf(addressLatLng.latitude);
+                                lng = String.valueOf(addressLatLng.longitude);
+
+
+                                String adresaID = RemoteDatabase.addressRegistration(road, nr, postalCode, String.valueOf(city), lat, lng);
 
                                 if(adresaID!=null)
-                                    RemoteDatabase.userDbRegistration(email, pass, emri, mbiemri, datelindja, tel, tipi,adresaID);
+                                    RemoteDatabase.userDbRegistration(email, pass, name, surname, birthdate, tel, type,adresaID);
 
 
-                                if (radioAutoSallon.isChecked()) {
-                                    RemoteDatabase.carDealerRegistration(emriAutosallonit, pershkrimiAutosallonit, telAutosallonit);
+                                if (radioCarDealership.isChecked()) {
+                                    RemoteDatabase.carDealerRegistration(dealershipName, dealershipDesc, dealershipTel);
                                 }
 
                                 fUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -368,7 +360,7 @@ public class CreateAccountFragment extends Fragment {
                                             verify.setContentView(R.layout.dialog_information);
                                             verify.setTitle("Verifiko emailin");
                                             verify.show();
-                                            tvSukses = (TextView) verify.findViewById(R.id.tvSukses);
+                                            tvSuccess = (TextView) verify.findViewById(R.id.tvSukses);
                                             tv2 = (TextView) verify.findViewById(R.id.tv2);
                                             Thread prit = new Thread() {
                                                 @Override
@@ -414,20 +406,20 @@ public class CreateAccountFragment extends Fragment {
 
                                         case "ERROR_INVALID_EMAIL":
                                             Toast.makeText(getActivity(), "Formati i email-it është gabim", Toast.LENGTH_LONG).show();
-                                            etKrijoEmail.setError("Formati i këtij email-i është gabim!");
-                                            etKrijoEmail.requestFocus();
+                                            etCreateEmail.setError("Formati i këtij email-i është gabim!");
+                                            etCreateEmail.requestFocus();
                                             break;
 
                                         case "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL":
                                             Toast.makeText(getActivity(), "Emaili ekziston në databazë", Toast.LENGTH_LONG).show();
-                                            etKrijoEmail.setError("Emaili ekziston në databazë");
-                                            etKrijoEmail.requestFocus();
+                                            etCreateEmail.setError("Emaili ekziston në databazë");
+                                            etCreateEmail.requestFocus();
                                             break;
 
                                         case "ERROR_EMAIL_ALREADY_IN_USE":
                                             Toast.makeText(getActivity(), "Emaili ekziston në databazë", Toast.LENGTH_LONG).show();
-                                            etKrijoEmail.setError("Emaili ekziston në databazë");
-                                            etKrijoEmail.requestFocus();
+                                            etCreateEmail.setError("Emaili ekziston në databazë");
+                                            etCreateEmail.requestFocus();
                                             break;
 
                                         case "ERROR_CREDENTIAL_ALREADY_IN_USE":

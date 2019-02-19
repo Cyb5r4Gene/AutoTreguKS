@@ -184,7 +184,7 @@ public class UpdateProfileFragment extends Fragment {
                 .createFromResource(getActivity().getApplicationContext(), R.array.qytetet,
                         R.layout.spinner_profili);
 
-        // Layout-i i cili i aplikohet elementeve te dropdown-qyteti
+        // Layout-i i cili i aplikohet elementeve te dropdown-city
         staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Aplikimi i adapterit te spineri

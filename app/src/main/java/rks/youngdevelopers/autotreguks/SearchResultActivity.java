@@ -1,5 +1,7 @@
 package rks.youngdevelopers.autotreguks;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -11,10 +13,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -185,7 +190,7 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRec
     }
 
     @Override
-    public void onPostClick(int position, int id) {
+    public void onPostClick(int position, final int id) {
         if (id == 1) {
             /* u kliku postimi*/
             Toast.makeText(this, "U klikua POSTIMI " + (position + 1), Toast.LENGTH_LONG).show();
@@ -194,8 +199,39 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRec
             PostViewActivity.postID = mFinalResult.get(id).get(position).toString();
             startActivity(objIntent);
         } else if (id == 2) {
-            /* u kliku SAVE */
-            Toast.makeText(this, "U klikua SAVE te postimi me id: " + SearchFragment.finalResult.get(1).get(position), Toast.LENGTH_LONG).show();
+//            /* u kliku SAVE */
+//            Toast.makeText(this, "U klikua SAVE te postimi me id: " + SearchFragment.finalResult.get(1).get(position), Toast.LENGTH_LONG).show();
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            final DatabaseReference dRef = db.getReference();
+            FirebaseUser useri = firebaseAuth.getCurrentUser();
+
+            final Context context = this;
+            final Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.dialog_delete_post);
+            dialog.setTitle("Test");
+            Button btnExit = (Button)dialog.findViewById(R.id.btnExit);
+            Button btnDeletePost = (Button)dialog.findViewById(R.id.btnDeletePost);
+            btnExit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            List<List> mFinalResult = sortedData.get(btnID);
+            final String pos = mFinalResult.get(1).get(position).toString();
+            btnDeletePost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dRef.child("posts").child(pos).child("ttl").setValue(111111);
+                    Toast.makeText(context,"Postimi u fshi me sukses", Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+
+
+
         }
 
     }

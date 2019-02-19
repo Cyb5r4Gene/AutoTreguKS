@@ -95,7 +95,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (lokacioniClick == null && lokacioniIm == null) {
                     Snackbar.make(v, "Ju lutem përzgjedhni lokacionin tuaj!", Snackbar.LENGTH_LONG).show();
                 } else {
-                    CreateAccountFragment.adresaLatLng = ruajLatLng;
+                    CreateAccountFragment.addressLatLng = ruajLatLng;
                     UpdateProfileFragment.updateLatLng = ruajLatLng;
                     finish();
                 }

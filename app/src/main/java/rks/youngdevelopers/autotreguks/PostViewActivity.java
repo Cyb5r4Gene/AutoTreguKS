@@ -628,7 +628,7 @@ public class PostViewActivity extends AppCompatActivity {
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
 
                     if (post.getPronariID().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        imgP.setImageResource(R.drawable.ic_edit_white);
+                        imgP.setImageResource(R.drawable.ic_clear_white);
                     } else {
                         /*LISTIMI I POSTIMEVE TE RUAJTURA */
                         SQLiteDatabase objDb = (new LocalDatabase(this)).getReadableDatabase();

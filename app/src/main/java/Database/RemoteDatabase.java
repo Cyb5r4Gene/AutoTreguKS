@@ -414,7 +414,7 @@ public class RemoteDatabase {
             if(search.getCarTypes()!=null && search.getCarTypes().size()!=0){
                 searchNr++;
                 for(int i=0;i<search.getCarTypes().size();i++){
-                    if(search.getCarTypes().get(i).getMarke()== post.getMarkaID() && search.getCarTypes().get(i).getMarke()==post.getModeliID()){
+                    if(search.getCarTypes().get(i).getMarke() == post.getMarkaID() && search.getCarTypes().get(i).getModel()==post.getModeliID()){
                         matchedNr++;
                     }
                 }

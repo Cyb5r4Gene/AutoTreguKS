@@ -1,10 +1,13 @@
 package Fragments;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import rks.youngdevelopers.autotreguks.PostActivity;
 import rks.youngdevelopers.autotreguks.R;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission_group.CAMERA;
+import static android.Manifest.permission_group.STORAGE;
 
 public class PostHomeFragment extends Fragment {
     private LinearLayout postKryesore, postTeknike, postKarakteristikat, postPershkrimi;
@@ -117,14 +124,27 @@ public class PostHomeFragment extends Fragment {
     // function to navigate through activity fragments
     private void nderroFragmentin(int i)
     {
+        fragment = null;
         switch (i){
             case 1:
                 fragment = new PostMainFragment();
                 break;
             case 2:
                 //hapet dialogu per shtim te fotografive
-                fragment = new PostImagesFragment();
-                break;
+                if(ContextCompat.checkSelfPermission(getContext(), READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+                    fragment = new PostImagesFragment();
+                    break;
+                } else {
+                    fragment = null;
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{READ_EXTERNAL_STORAGE}, 200);
+
+                    break;
+                }
+
+
+
+                
+
             case 3:
                 fragment = new PostTechnicalFragment();
                 break;
@@ -144,4 +164,13 @@ public class PostHomeFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+            fragment = new PostImagesFragment();
+            Toast.makeText(getContext(), "Qasja në fotografi u lejua", Toast.LENGTH_LONG).show();
+        }
+
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }

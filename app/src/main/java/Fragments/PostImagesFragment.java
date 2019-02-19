@@ -61,6 +61,8 @@ public class PostImagesFragment extends Fragment {
         Toolbar toolbar = v.findViewById(R.id.toolbar_post_gallery);
         ((PostActivity) getActivity()).getSupportActionBar().hide();
 
+
+
         // LIDHJA E PAMJEVE ME XML_LAYOUT
         gridView = (GridView) v.findViewById(R.id.gridView);
         gallerySpinner = (Spinner) v.findViewById(R.id.gallerySpinner);
