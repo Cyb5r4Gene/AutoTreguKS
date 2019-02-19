@@ -449,8 +449,7 @@ public class UpdateProfileFragment extends Fragment {
 
     String url;
     private void loadImage() {
-        UniversalImageLoader universalImageLoader = new UniversalImageLoader(getContext());
-        ImageLoader.getInstance().init(universalImageLoader.getConfig());
+
 
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference storageReference =firebaseStorage.getReference();
@@ -458,28 +457,14 @@ public class UpdateProfileFragment extends Fragment {
         storageReference.child("userImages/"+user.getUid()+"/profile").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
+                UniversalImageLoader universalImageLoader = new UniversalImageLoader(getContext());
+                ImageLoader.getInstance().init(universalImageLoader.getConfig());
                 url = uri.toString();
                 UniversalImageLoader.setImage(url, imgProfil, null, "");
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), "Error: "+e.getMessage(), Toast.LENGTH_LONG).show();
-            }
         });
 
-//        storageReference.child("userImages/"+user.getUid()+"/carDealer").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//            @Override
-//            public void onSuccess(Uri uri) {
-//                url = uri.toString();
-//                UniversalImageLoader.setImage(url, imgAutosallon, null, "");
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(getContext(), "Error: "+e.getMessage(), Toast.LENGTH_LONG).show();
-//            }
-//        });
+
 
 
     }

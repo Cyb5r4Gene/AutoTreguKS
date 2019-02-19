@@ -135,8 +135,10 @@ public class PostFeaturesFragment extends Fragment implements DialogPostAdapter.
         checkSensorShiu.setChecked(PostActivity.features.isSensorShiu());
         checkStartStop.setChecked(PostActivity.features.isStartStop());
 
-        if(PostActivity.features.getKondicioneri()!=0)
-            tvKondicioneri.setText(PostActivity.features.getKondicioneri());
+        if(PostActivity.features.getKondicioneri()!=0) {
+            dialogItems = Arrays.asList(getResources().getStringArray(R.array.kondicioneri));
+            tvKondicioneri.setText(dialogItems.get(PostActivity.features.getKondicioneri()));
+        }
         String ajri = "";
         if(PostActivity.airbag.isAirbagShoferi())
             ajri+="Airbag Shoferi";

@@ -737,7 +737,7 @@ public class SearchFragment extends Fragment implements DialogPostAdapter.OnDial
                 text = "";
                 text = String.valueOf(searchConditions.getFuqia().getFrom()) + " KW - "
                         + String.valueOf(searchConditions.getFuqia().getTo()) + " KW";
-                tvKm.setText(text);
+                tvFuqia.setText(text);
             }
         } catch (Exception e) {
 

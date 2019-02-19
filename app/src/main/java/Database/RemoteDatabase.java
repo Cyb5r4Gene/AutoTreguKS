@@ -287,14 +287,21 @@ public class RemoteDatabase {
                 }
             }
 
+            if(search.getFuqia() !=null){
+                searchNr++;
+                if (search.getFuqia().getFrom() <= Long.parseLong(post.getFuqia()) && search.getFuqia().getTo() >= Long.parseLong(post.getFuqia())) {
+                    matchedNr++;
+                }
+            }
+
             if (search.getFuel().isDiesel() || search.getFuel().isPetrol() || search.getFuel().isElectric()
                     || search.getFuel().isGas() || search.getFuel().isHybrid()) {
                 searchNr++;
-                if ((search.getFuel().isDiesel() && post.getKarburantiID() == 0)
-                        || (search.getFuel().isPetrol() && post.getKarburantiID() == 1)
-                        || (search.getFuel().isGas() && post.getKarburantiID() == 2)
-                        || (search.getFuel().isElectric() && post.getKarburantiID() == 3)
-                        || (search.getFuel().isHybrid()) && post.getKarburantiID() == 4) {
+                if ((search.getFuel().isDiesel() && post.getKarburantiID() == 1)
+                        || (search.getFuel().isPetrol() && post.getKarburantiID() == 2)
+                        || (search.getFuel().isGas() && post.getKarburantiID() == 3)
+                        || (search.getFuel().isElectric() && post.getKarburantiID() == 4)
+                        || (search.getFuel().isHybrid()) && post.getKarburantiID() == 5) {
                     matchedNr++;
                 }
             }
